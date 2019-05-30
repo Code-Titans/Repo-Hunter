@@ -1,5 +1,5 @@
 {
-  "name": "Repo-Hunter",
+  "name": "repo-hunter",
   "version": "1.0.0",
   "description": "A fun app for uploading your repos and getting feedback",
   "main": "index.js",
