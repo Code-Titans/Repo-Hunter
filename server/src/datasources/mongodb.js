@@ -1,22 +1,20 @@
 import { MongoClient } from 'mongodb';
 
-class mongoDbAPI {
+class MongoDbAPI extends MongoClient {
   constructor(url) {
-    this.db = '';
-    MongoClient.connect(url, {useNewUrlParser: true}, (err, client) => {
-      if (err) console.log(err);
-      this.getDbConnections(client.db(process.env.MONGO_DB_NAME))
-    })
+    super(url, { useNewUrlParser: true });
+    this.connect((err) => {
+      if (err) throw Error(err.message);
+      console.log('🚀 Connected successfully to MongoDB server. Enjoy! 🤾 ‍');
+      this.db = this.db(process.env.MONGO_DB_NAME);
+    });
   }
 
-  getDbConnections = (client) => {
-    this.db = client;
-  };
-
   getAllComments = async () => {
-    if (this.db === '') console.log("waiting for database client");
-    return await this.db.collection('comments').find().toArray();
+    const comment = await this.db.collection('comments').find().toArray();
+
+    return comment;
   }
 }
 
-export default mongoDbAPI
+export default MongoDbAPI;
