@@ -1,11 +1,19 @@
 .Header {
-  background-color: aqua;
-  display: inline-flex;
   width: 100%;
+  background-color: #3841A8;
+  height: 60px;
+  left: 0;
 }
 
 .Logo {
-  color: blue;
-  margin: 1em 1em;
-  line-height: 2;
+  height: 50px;
+  width: max-content;
+  background-color: crimson;
+  color: rgba(53, 255, 43, 0.83);
+  font-weight: bolder;
+  font-family: "American Typewriter", serif;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  margin-left: 10%;
 }

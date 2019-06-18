@@ -1,14 +1,16 @@
 import React from 'react';
-const styles = require('../styles/Header.scss')
+const styles = require('../styles/Header.scss');
 
 const Header = (props) => {
   return (
-    <nav>
-      <span className={styles.Logo}>Logo is here</span>
+    <nav className={styles.Header}>
+      <div className={styles.Logo}>
+        Repohunter
+      </div>
       {props.children}
     </nav>
   )
-}
+};
 
 
-export default Header; 
+export default Header;

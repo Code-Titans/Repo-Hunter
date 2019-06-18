@@ -1,4 +1,9 @@
-.login_padding {
-  margin: 2em;
-  color: red;
+.Login {
+  height: max-content;
+  width: 40%;
+
+  .LoginForm {
+    display: flex;
+    flex-direction: column;
+  }
 }
