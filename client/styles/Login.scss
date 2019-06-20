@@ -67,6 +67,16 @@
         cursor: pointer;
       }
     }
+
+    .LoginShowPassword{
+      position: relative;
+      width: 18px;
+      height: 10px;
+      margin: -42px 10px 32px;
+      align-self: flex-end;
+      cursor: pointer;
+    }
+
     button {
       width: 150px;
       align-self: center;
