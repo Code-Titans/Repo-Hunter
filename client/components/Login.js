@@ -13,6 +13,9 @@ const Login = (props) => {
 
         <label htmlFor={"password"}>Password</label>
         <input type="password" name={"password"} placeholder={"*********"}/>
+        <span className={styles.LoginShowPassword}>
+            <img src={"/static/view-password.svg"} alt={"view-password-eye"}/>
+          </span>
         <span className={styles.LoginFormFPassword}><a href={"#"}>Forgot Password?</a></span>
         <button type="submit">LOGIN</button>
       </form>
