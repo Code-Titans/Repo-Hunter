@@ -1,13 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Layout from "../components/Layout"
 import Login from '../components/Login';
+import withData from "../lib";
 
-export default class Index extends Component {
-  render() {
-    return (
-      <Layout>
-        <Login/>
-      </Layout>
-    )
-  }
-}
+const Index = withData(() => {
+  return (
+    <Layout>
+      <Login/>
+    </Layout>
+  )
+});
+
+export default Index;

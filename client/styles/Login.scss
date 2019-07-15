@@ -57,15 +57,12 @@
     .LoginFormFPassword {
       align-self: flex-end;
       margin: -0.8em 0 0.8em;
-
-      a {
-        text-decoration: none;
-        font-family: "Source Sans Pro", sans-serif;
-        font-weight: 400;
-        font-size: 12px;
-        color: #FFFFFF;
-        cursor: pointer;
-      }
+      text-decoration: none;
+      font-family: "Source Sans Pro", sans-serif;
+      font-weight: 400;
+      font-size: 12px;
+      color: #FFFFFF;
+      cursor: pointer;
     }
 
     .LoginShowPassword{
@@ -93,7 +90,7 @@
   }
 
   p:first-of-type{
-    color: #78F4EF;
+    //color: #78F4EF; TODO fix the social authentication the uncomment this
     font-family: "Source Sans Pro", sans-serif;
     font-size: 12px;
     align-self: center;
@@ -121,7 +118,7 @@
     font-size: 14px;
     color: #FFFFFF;
 
-    span > a{
+    span {
       color: #78F4EF;
       text-decoration: none;
       cursor: pointer;
@@ -148,4 +145,10 @@
   right: 0;
   bottom: 10vh;
   clip-path: polygon(49% 51%, 100% 0, 100% 100%);
+}
+
+.Error {
+  color: #ffa9bf;
+  font-size: 12px;
+  font-weight: bolder;
 }
