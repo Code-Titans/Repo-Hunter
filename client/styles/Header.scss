@@ -7,14 +7,16 @@
 }
 
 .Logo {
-  height: 50px;
+  height: 60px;
   width: max-content;
-  background-color: crimson;
-  color: rgba(53, 255, 43, 0.83);
+  color: #FFFFFF;
   font-weight: bolder;
   font-family: "American Typewriter", serif;
-  display: grid;
-  align-content: center;
-  justify-items: center;
   margin-left: 10%;
+  display: flex;
+  align-items: center;
+}
+
+.Red {
+  color: #95FFEB;
 }
