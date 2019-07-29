@@ -5,7 +5,7 @@ const Header = (props) => {
   return (
     <nav className={styles.Header}>
       <div className={styles.Logo}>
-        Repohunter
+        Repo<span className={styles.Red}>Hunter</span>
       </div>
       {props.children}
     </nav>
