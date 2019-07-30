@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 const styles = require('../styles/Header.scss');
 
 const Header = (props) => {
@@ -12,5 +12,50 @@ const Header = (props) => {
   )
 };
 
+export const HeaderLoggedInView = (props) => {
+  const { handleSearchSubmit, handleSearch, showProfile, viewProfile } = props;
+  return (
+    <Fragment>
+      <form onSubmit={handleSearchSubmit}>
+        <div className={styles.SearchBlock}>
+          <img
+            src="../static/img/search_icon.svg"
+            alt="search_icon"
+            className={styles.SearchInputIcon}
+          />
+          <input
+            type="search"
+            name="search"
+            placeholder="Search for repository..."
+            className={styles.SearchInput}
+            onInput={handleSearch}
+          />
+        </div>
+      </form>
+      <button name="new-repo" className={styles.NewRepos}>
+        NEW REPO
+      </button>
+      <div className={styles.Profile}>
+        <img onClick={showProfile} role='button' src="../static/img/profile-pic.png" alt="profile-pic"/>
+        <div className={ viewProfile
+          ? `${styles.ProfileDropdown}`
+          : `${styles.ProfileDropdown} ${styles.DisplayNone}` }>
+          <span>Bryan Cee</span>
+          <ul>
+            <li id="profile">
+              Profile
+            </li>
+            <li id="user">
+              Users
+            </li>
+            <li id="logout">
+              Logout
+            </li>
+          </ul>
+        </div>
+      </div>
+    </Fragment>
+  )
+};
 
 export default Header;

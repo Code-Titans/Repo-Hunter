@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
+import { Component, Fragment } from 'react';
 import Layout from '../components/Layout';
-import { Fragment } from 'react';
+import Sidebar from '../components/Sidebar';
 const styles = require('../styles/Home.scss');
 
 class Home extends Component {
@@ -37,10 +37,13 @@ class Home extends Component {
 
   render() {
     return (
-      <Layout showProfile={this.handleProfileView} viewProfile={this.state.viewProfile} handleSearch={this.handleSearch} handleSearchSubmit={this.handleSearchSubmit}>
-        <div className='ss'>
-          Hello
-        </div>
+      <Layout
+        showProfile={this.handleProfileView}
+        viewProfile={this.state.viewProfile}
+        handleSearch={this.handleSearch}
+        handleSearchSubmit={this.handleSearchSubmit}
+      >
+        <Sidebar/>
       </Layout>
     )
   }

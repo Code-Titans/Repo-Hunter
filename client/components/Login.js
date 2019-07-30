@@ -1,18 +1,19 @@
 import React, { Component, Fragment } from 'react';
 import Router from 'next/router';
+
 const styles = require('../styles/Login.scss');
 import { Mutation } from 'react-apollo';
 import { LOGIN, SIGN_UP } from '../gql';
 
 class Login extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props);
     this.state = {
       loginForm: true,
-      email:"",
-      password: "",
-      confirmPassword: "",
-      passwordType: "true"
+      email: '',
+      password: '',
+      confirmPassword: '',
+      passwordType: 'true'
     };
 
     this.handleOnchange = this.handleOnchange.bind(this);
@@ -21,7 +22,7 @@ class Login extends Component {
   };
 
   handleForm = () => {
-    this.setState({ loginForm: !this.state.loginForm })
+    this.setState({ loginForm: !this.state.loginForm });
   };
 
   handleOnchange = (e) => {
@@ -31,25 +32,25 @@ class Login extends Component {
   togglePasswordView = () => {
     this.setState({
       passwordType: !this.state.passwordType,
-    })
+    });
   };
 
-  render(){
+  render() {
     const { loginForm, email, password, confirmPassword, passwordType } = this.state;
-    return(
+    return (
       <Mutation mutation={loginForm ? LOGIN : SIGN_UP}>
         {
           (login, { error, loading, data }) => {
-            if(error) {
-              console.log(error.message)
+            if (error) {
+              console.log(error.message);
             }
-            if(loading) return <p>Loading...</p>;
+            if (loading) return <p>Loading...</p>;
 
             if (data && (data.login || data.register)) {
               const { token, user } = data.login || data.register;
-              if(token) {
-                localStorage.setItem("token", token);
-                localStorage.setItem("id", user.id);
+              if (token) {
+                localStorage.setItem('token', token);
+                localStorage.setItem('id', user.id);
                 Router.push(`/home`);
               }
             }
@@ -60,44 +61,49 @@ class Login extends Component {
                   className={styles.LoginForm}
                   onSubmit={e => {
                     e.preventDefault();
-                    login({ variables: {
-                      email: this.state.email,
-                      password: this.state.password
-                    }})
+                    login({
+                      variables: {
+                        email: this.state.email,
+                        password: this.state.password
+                      }
+                    });
                   }}
                 >
-                  {loginForm ? <span>Login</span> : <span>Sign Up</span> }
+                  {loginForm ? <span>Login</span> : <span>Sign Up</span>}
                   <hr/>
-                  <label htmlFor={"email"}>Email</label>
+                  <label htmlFor={'email'}>Email</label>
                   <input
                     type="email"
-                    name={"email"}
+                    name={'email'}
                     value={email}
-                    placeholder={"janedoe@example.com"}
+                    placeholder={'janedoe@example.com'}
                     onChange={this.handleOnchange}
                     required
                   />
 
-                  <label htmlFor={"password"}>Password</label>
+                  <label htmlFor={'password'}>Password</label>
                   <input
-                    type={passwordType ? 'password' : 'text' }
-                    name={"password"}
-                    placeholder={"*********"}
+                    type={passwordType ? 'password' : 'text'}
+                    name={'password'}
+                    placeholder={'*********'}
                     onChange={this.handleOnchange}
                     value={password}
                     required
                   />
-                  <span role='button' className={styles.LoginShowPassword} onClick={this.togglePasswordView}>
-                    <img src={"/static/img/view-password.svg"} alt={"view-password-eye"}/>
+                  <span role='button' className={styles.LoginShowPassword}
+                        onClick={this.togglePasswordView}>
+                    <img src={'/static/img/view-password.svg'}
+                         alt={'view-password-eye'}/>
                   </span>
                   {/*<span className={styles.Error}>{error}</span>*/}
 
-                  { !loginForm
+                  {!loginForm
                     ? <Fragment>
-                      <label htmlFor={"confirmPassword"}>Confirm Password</label>
+                      <label htmlFor={'confirmPassword'}>Confirm
+                        Password</label>
                       <input
-                        type={passwordType ? 'password' : 'text' }
-                        name={"confirmPassword"} placeholder={"*********"}
+                        type={passwordType ? 'password' : 'text'}
+                        name={'confirmPassword'} placeholder={'*********'}
                         onChange={this.handleOnchange}
                         value={confirmPassword}
                         required
@@ -105,12 +111,12 @@ class Login extends Component {
                     </Fragment>
                     : null
                   }
-                  { loginForm ? <span className={styles.LoginFormFPassword}>Forgot Password?</span>: null}
-                  { loginForm
+                  {loginForm ? <span className={styles.LoginFormFPassword}>Forgot Password?</span> : null}
+                  {loginForm
                     ? <button
                       type="submit"
                       disabled={!email || !password}
-                      className={(!email || !password) ? styles.Disabled: ''}
+                      className={(!email || !password) ? styles.Disabled : ''}
                     >LOGIN</button>
                     : <button
                       type="submit"
@@ -119,7 +125,7 @@ class Login extends Component {
                         (!email || !password || !confirmPassword || !(password === confirmPassword))
                           ? styles.Disabled
                           : ''}
-                    >SIGN UP</button> }
+                    >SIGN UP</button>}
                 </form>
                 {/* TODO fix social authentication */}
                 {/*{ loginForm ? <p>or login with</p>: <p>or create account with</p>}*/}
@@ -127,17 +133,19 @@ class Login extends Component {
                 {/*  <a href="#"><img src={"/static/img/google-icon.svg"} alt="google"/></a>*/}
                 {/*  <a href="#"><img src={"/static/img/github-icon.svg"} alt="github"/></a>*/}
                 {/*</div>*/}
-                { loginForm
-                    ? <p>Don't have an account? <span onClick={this.handleForm}>Sign up</span></p>
-                    : <p>Already have an account? <span onClick={this.handleForm}>Log in</span></p>
+                {loginForm
+                  ? <p>Don't have an account? <span onClick={this.handleForm}>Sign up</span>
+                  </p>
+                  : <p>Already have an account? <span onClick={this.handleForm}>Log in</span>
+                  </p>
                 }
                 <div className={styles.LoginTriangleRight}/>
               </div>
-            )
+            );
           }
         }
       </Mutation>
-    )
+    );
   }
 };
 
