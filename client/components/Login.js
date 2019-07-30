@@ -50,7 +50,7 @@ class Login extends Component {
               if(token) {
                 localStorage.setItem("token", token);
                 localStorage.setItem("id", user.id);
-                Router.push(`/about`);
+                Router.push(`/home`);
               }
             }
             return (
@@ -88,7 +88,7 @@ class Login extends Component {
                     required
                   />
                   <span role='button' className={styles.LoginShowPassword} onClick={this.togglePasswordView}>
-                    <img src={"/static/view-password.svg"} alt={"view-password-eye"}/>
+                    <img src={"/static/img/view-password.svg"} alt={"view-password-eye"}/>
                   </span>
                   {/*<span className={styles.Error}>{error}</span>*/}
 
@@ -124,8 +124,8 @@ class Login extends Component {
                 {/* TODO fix social authentication */}
                 {/*{ loginForm ? <p>or login with</p>: <p>or create account with</p>}*/}
                 {/*<div className={styles.LoginSocial}>*/}
-                {/*  <a href="#"><img src={"/static/google-icon.svg"} alt="google"/></a>*/}
-                {/*  <a href="#"><img src={"/static/github-icon.svg"} alt="github"/></a>*/}
+                {/*  <a href="#"><img src={"/static/img/google-icon.svg"} alt="google"/></a>*/}
+                {/*  <a href="#"><img src={"/static/img/github-icon.svg"} alt="github"/></a>*/}
                 {/*</div>*/}
                 { loginForm
                     ? <p>Don't have an account? <span onClick={this.handleForm}>Sign up</span></p>
