@@ -1,8 +1,9 @@
 import Layout from './Layout';
 import Sidebar from './Sidebar';
 import React, { Component } from 'react';
+import SortAndFilter from './SortAndFilter';
 
-const styles = require('../styles/Home.scss');
+// const styles = require('../styles/Home.scss');
 
 class HomePage extends Component {
   constructor(props) {
@@ -54,6 +55,7 @@ class HomePage extends Component {
         showUploadForm={this.handleShowUploadForm}
         uploadForm={this.state.uploadForm}
       >
+        <SortAndFilter/>
         <Sidebar/>
       </Layout>
     )

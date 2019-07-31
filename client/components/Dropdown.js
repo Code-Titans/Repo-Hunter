@@ -1,7 +1,7 @@
 import React, {Component, Fragment} from 'react';
 import Select from 'react-select';
 
-const style = require('../styles/Select.scss');
+const style = require('../styles/Dropdown.scss');
 
 class DropDown extends Component {
 
@@ -12,7 +12,8 @@ class DropDown extends Component {
   handleSelectChange = (selectedOption) => {
     this.setState({
       selectedOption
-    });
+    }, () => console.log(this.state.selectedOption));
+
   };
 
   render() {

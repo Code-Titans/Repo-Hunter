@@ -1,7 +1,7 @@
 import React, {Fragment} from 'react';
-import Select from '../components/Select';
+import Select from '../components/Dropdown';
 
-const styles = require('../styles/Search.scss');
+const styles = require('../styles/SortAndFilter.scss');
 
 
 const options = [
