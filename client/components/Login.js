@@ -1,9 +1,10 @@
 import React, { Component, Fragment } from 'react';
 import Router from 'next/router';
-
-const styles = require('../styles/Login.scss');
 import { Mutation } from 'react-apollo';
 import { LOGIN, SIGN_UP } from '../gql';
+
+const styles = require('../styles/Login.scss');
+
 
 class Login extends Component {
   constructor(props) {

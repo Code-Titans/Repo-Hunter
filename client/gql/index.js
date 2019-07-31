@@ -23,3 +23,18 @@ export const SIGN_UP = gql`
         }
     }
 `;
+
+export const POST_REPO = gql`
+    mutation PostRepo($link: String!, $description: String!){
+        postRepo(link:$link, description: $description){
+            id
+            repo
+            repoLink
+            description
+            owner{
+                username
+                email
+            }
+        }
+    }
+`;
