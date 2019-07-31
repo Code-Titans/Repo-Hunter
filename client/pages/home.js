@@ -1,6 +1,7 @@
 import { Component, Fragment } from 'react';
 import Layout from '../components/Layout';
 import Sidebar from '../components/Sidebar';
+import Search from '../components/search'
 const styles = require('../styles/Home.scss');
 
 class Home extends Component {
@@ -24,9 +25,9 @@ class Home extends Component {
 
   handleSearchSubmit = (e) => {
     e.preventDefault();
-    if (!this.state.search) {
+    if (!this.state.Search) {
       console.log('nothing has been entered')
-    } else console.log(this.state.search)
+    } else console.log(this.state.Search)
   };
 
   handleProfileView = () => {
@@ -43,6 +44,7 @@ class Home extends Component {
         handleSearch={this.handleSearch}
         handleSearchSubmit={this.handleSearchSubmit}
       >
+        <Search />
         <Sidebar/>
       </Layout>
     )
