@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import UploadPost from './UploadPost';
 const styles = require('../styles/Header.scss');
 
 const Header = (props) => {
@@ -13,7 +14,7 @@ const Header = (props) => {
 };
 
 export const HeaderLoggedInView = (props) => {
-  const { handleSearchSubmit, handleSearch, showProfile, viewProfile } = props;
+  const { handleSearchSubmit, handleSearch, showUploadForm, showProfile, viewProfile, uploadForm } = props;
   return (
     <Fragment>
       <form onSubmit={handleSearchSubmit}>
@@ -32,9 +33,10 @@ export const HeaderLoggedInView = (props) => {
           />
         </div>
       </form>
-      <button name="new-repo" className={styles.NewRepos}>
+      <button name="new-repo" onClick={showUploadForm} className={styles.NewRepos}>
         NEW REPO
       </button>
+      { uploadForm ? <UploadPost handleReset={showUploadForm}/> : null }
       <div className={styles.Profile}>
         <img onClick={showProfile} role='button' src="../static/img/profile-pic.png" alt="profile-pic"/>
         <div className={ viewProfile
