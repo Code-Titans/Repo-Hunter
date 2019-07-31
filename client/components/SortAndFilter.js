@@ -9,7 +9,7 @@ const options = [
   {value: 'Most Stared', label: 'Most Stared'},
 ];
 
-const Search = () => {
+const SortAndFilter = () => {
   return (
       <Fragment>
         <div className={styles.SearchSection}>
@@ -26,4 +26,4 @@ const Search = () => {
   )
 };
 
-export default Search;
+export default SortAndFilter;
