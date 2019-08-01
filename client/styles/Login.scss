@@ -5,7 +5,7 @@
   flex-direction: column;
   margin-top: -12vh;
 
-  .LoginForm {
+  &Form {
     display: flex;
     flex-direction: column;
 
@@ -54,7 +54,7 @@
         color: #CCCCCC;
     }
 
-    .LoginFormFPassword {
+    &FPassword {
       align-self: flex-end;
       margin: -0.8em 0 0.8em;
       text-decoration: none;
