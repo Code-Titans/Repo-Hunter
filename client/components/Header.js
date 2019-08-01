@@ -38,7 +38,7 @@ export const HeaderLoggedInView = (props) => {
       </button>
       { uploadForm ? <UploadPost handleReset={showUploadForm}/> : null }
       <div className={styles.Profile}>
-        <img onClick={showProfile} role='button' src="../static/img/profile-pic.png" alt="profile-pic"/>
+        <img onClick={showProfile} role='button' src="../static/img/profile-pic.svg" alt="profile-pic"/>
         <div className={ viewProfile
           ? `${styles.ProfileDropdown}`
           : `${styles.ProfileDropdown} ${styles.DisplayNone}` }>
