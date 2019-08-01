@@ -1,5 +1,5 @@
 import React, {Component, Fragment} from 'react';
-import Select from '../components/Dropdown';
+import Select from './Dropdown';
 
 const styles = require('../styles/SortAndFilter.scss');
 
