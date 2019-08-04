@@ -1,227 +1,49 @@
-import { Component } from 'react';
+import React, {Component} from 'react';
 
 const style = require('../styles/RepoList.scss');
+import {Repos} from '../fixtures'
+import RepoCard from "./RepoCard";
+import Pagination from "./Pagination";
 
-class RepoList extends Component{
+class RepoList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      repos: []
+      currentPage: 1,
+      perPage: {value: 10, label: '10 / page'},
+      displayedRepos: Repos
     }
   }
 
+  renderRepos = ({value, label}) => {
+    this.setState({
+      perPage: {value, label}
+    })
+  };
+
+  handlePageChange = ({target}) => {
+    const {value} = target;
+    this.setState({
+      currentPage: Number(value)
+    })
+  };
+
   render() {
+    const {displayedRepos, perPage, currentPage} = this.state;
     return (
-      <div className={style.RepoList}>
-        <div className={style.Card}>
-          <img
-            src="https://www.pobonline.com/ext/resources/Static_Images/Mike-Anderson-200px.png?1424357628"
-            alt="imgae"/>
-          <div className={style.CardContent}>
-            <div className={style.CardContentText}>
-              <h2>Bryce Cee</h2>
-              <p className={style.CardContentTextDesc}>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Accusamus consectetur consequatur earum, esse explicabo fuga
-                iusto libero rerum sunt unde ut voluptate voluptatem voluptates.
-                Consectetur dicta.
-              </p>
-              <div className={style.CardContentInteractions}>
-                <span>3 Likes</span>
-                <span>33 Comments</span>
-              </div>
-            </div>
-            <div className={style.CardStar}>
-              <img className={style.CardStarIcon}
-                   src="../static/img/star.svg"
-                   alt="star"/>
-              <span>2309</span>
-            </div>
-          </div>
+        <div className={style.RepoList}>
+          {
+            displayedRepos.slice(0, perPage.value).map(repo => (
+                <RepoCard repo={repo}/>
+            ))
+          }
+          <Pagination
+              renderRepos={this.renderRepos}
+              perPage={perPage}
+              handlePageChange={this.handlePageChange}
+              currentPage={currentPage}
+              Repos={Repos}/>
         </div>
-        <div className={style.Card}>
-          <img
-            src="https://www.pobonline.com/ext/resources/Static_Images/Mike-Anderson-200px.png?1424357628"
-            alt="imgae"/>
-          <div className={style.CardContent}>
-            <div className={style.CardContentText}>
-              <h2>Bryce Cee</h2>
-              <p className={style.CardContentTextDesc}>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Accusamus consectetur consequatur earum, esse explicabo fuga
-                iusto libero rerum sunt unde ut voluptate voluptatem voluptates.
-                Consectetur dicta.
-              </p>
-              <div className={style.CardContentInteractions}>
-                <span>3 Likes</span>
-                <span>33 Comments</span>
-              </div>
-            </div>
-            <div className={style.CardStar}>
-              <img className={style.CardStarIcon}
-                   src="../static/img/star.svg"
-                   alt="star"/>
-              <span>2309</span>
-            </div>
-          </div>
-        </div>
-        <div className={style.Card}>
-          <img
-            src="https://www.pobonline.com/ext/resources/Static_Images/Mike-Anderson-200px.png?1424357628"
-            alt="imgae"/>
-          <div className={style.CardContent}>
-            <div className={style.CardContentText}>
-              <h2>Bryce Cee</h2>
-              <p className={style.CardContentTextDesc}>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Accusamus consectetur consequatur earum, esse explicabo fuga
-                iusto libero rerum sunt unde ut voluptate voluptatem voluptates.
-                Consectetur dicta.
-              </p>
-              <div className={style.CardContentInteractions}>
-                <span>3 Likes</span>
-                <span>33 Comments</span>
-              </div>
-            </div>
-            <div className={style.CardStar}>
-              <img className={style.CardStarIcon}
-                   src="../static/img/star.svg"
-                   alt="star"/>
-              <span>2309</span>
-            </div>
-          </div>
-        </div>
-        <div className={style.Card}>
-        <img
-          src="https://www.pobonline.com/ext/resources/Static_Images/Mike-Anderson-200px.png?1424357628"
-          alt="imgae"/>
-        <div className={style.CardContent}>
-          <div className={style.CardContentText}>
-            <h2>Bryce Cee</h2>
-            <p className={style.CardContentTextDesc}>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Accusamus consectetur consequatur earum, esse explicabo fuga
-              iusto libero rerum sunt unde ut voluptate voluptatem voluptates.
-              Consectetur dicta.
-            </p>
-            <div className={style.CardContentInteractions}>
-              <span>3 Likes</span>
-              <span>33 Comments</span>
-            </div>
-          </div>
-          <div className={style.CardStar}>
-            <img className={style.CardStarIcon}
-                 src="../static/img/star.svg"
-                 alt="star"/>
-            <span>2309</span>
-          </div>
-        </div>
-      </div>
-        <div className={style.Card}>
-        <img
-          src="https://www.pobonline.com/ext/resources/Static_Images/Mike-Anderson-200px.png?1424357628"
-          alt="imgae"/>
-        <div className={style.CardContent}>
-          <div className={style.CardContentText}>
-            <h2>Bryce Cee</h2>
-            <p className={style.CardContentTextDesc}>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Accusamus consectetur consequatur earum, esse explicabo fuga
-              iusto libero rerum sunt unde ut voluptate voluptatem voluptates.
-              Consectetur dicta.
-            </p>
-            <div className={style.CardContentInteractions}>
-              <span>3 Likes</span>
-              <span>33 Comments</span>
-            </div>
-          </div>
-          <div className={style.CardStar}>
-            <img className={style.CardStarIcon}
-                 src="../static/img/star.svg"
-                 alt="star"/>
-            <span>2309</span>
-          </div>
-        </div>
-      </div>
-        <div className={style.Card}>
-          <img
-            src="https://www.pobonline.com/ext/resources/Static_Images/Mike-Anderson-200px.png?1424357628"
-            alt="imgae"/>
-          <div className={style.CardContent}>
-            <div className={style.CardContentText}>
-              <h2>Bryce Cee</h2>
-              <p className={style.CardContentTextDesc}>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Accusamus consectetur consequatur earum, esse explicabo fuga
-                iusto libero rerum sunt unde ut voluptate voluptatem voluptates.
-                Consectetur dicta.
-              </p>
-              <div className={style.CardContentInteractions}>
-                <span>3 Likes</span>
-                <span>33 Comments</span>
-              </div>
-            </div>
-            <div className={style.CardStar}>
-              <img className={style.CardStarIcon}
-                   src="../static/img/star.svg"
-                   alt="star"/>
-              <span>2309</span>
-            </div>
-          </div>
-        </div>
-        <div className={style.Card}>
-          <img
-            src="https://www.pobonline.com/ext/resources/Static_Images/Mike-Anderson-200px.png?1424357628"
-            alt="imgae"/>
-          <div className={style.CardContent}>
-            <div className={style.CardContentText}>
-              <h2>Bryce Cee</h2>
-              <p className={style.CardContentTextDesc}>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Accusamus consectetur consequatur earum, esse explicabo fuga
-                iusto libero rerum sunt unde ut voluptate voluptatem voluptates.
-                Consectetur dicta.
-              </p>
-              <div className={style.CardContentInteractions}>
-                <span>3 Likes</span>
-                <span>33 Comments</span>
-              </div>
-            </div>
-            <div className={style.CardStar}>
-              <img className={style.CardStarIcon}
-                   src="../static/img/star.svg"
-                   alt="star"/>
-              <span>2309</span>
-            </div>
-          </div>
-        </div>
-        <div className={style.Card}>
-          <img
-            src="https://www.pobonline.com/ext/resources/Static_Images/Mike-Anderson-200px.png?1424357628"
-            alt="imgae"/>
-          <div className={style.CardContent}>
-            <div className={style.CardContentText}>
-              <h2>Bryce Cee</h2>
-              <p className={style.CardContentTextDesc}>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Accusamus consectetur consequatur earum, esse explicabo fuga
-                iusto libero rerum sunt unde ut voluptate voluptatem voluptates.
-                Consectetur dicta.
-              </p>
-              <div className={style.CardContentInteractions}>
-                <span>3 Likes</span>
-                <span>33 Comments</span>
-              </div>
-            </div>
-            <div className={style.CardStar}>
-              <img className={style.CardStarIcon}
-                   src="../static/img/star.svg"
-                   alt="star"/>
-              <span>2309</span>
-            </div>
-          </div>
-        </div>
-      </div>
     );
   }
 }
