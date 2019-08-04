@@ -6,6 +6,8 @@
   font-family: Seravek-Light, serif;
   width: 16vw;
   height: fit-content;
+  position: sticky; top: 133px;
+  z-index: 999;
 
   h2 {
     font-weight: bold;
