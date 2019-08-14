@@ -112,6 +112,7 @@ class Pagination extends Component {
                           value={page}
                           onClick={handlePageChange}
                           className={page === currentPage ? style.ActivePage : ''}
+                          key={page}
                       >
                         {page}
                       </button>
@@ -129,6 +130,7 @@ class Pagination extends Component {
                 value={perPage}
                 onChange={renderRepos}
                 options={pageOptions}
+                instanceId='pagination'
             />
           </div>
         </div>

@@ -3,7 +3,7 @@ import Select from 'react-select';
 
 const style = require('../styles/Dropdown.scss');
 
-const DropDown = ({options, onChange, value, defaultInputValue  }) => {
+const DropDown = ({options, onChange, value, defaultInputValue, instanceId   }) => {
   return (
       <Fragment>
         <Select
@@ -12,6 +12,7 @@ const DropDown = ({options, onChange, value, defaultInputValue  }) => {
             defaultInputValue={defaultInputValue}
             onChange={onChange}
             options={options}
+            instanceId={instanceId}
         />
       </Fragment>
   )

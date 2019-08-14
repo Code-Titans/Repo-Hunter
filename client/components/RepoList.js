@@ -33,8 +33,8 @@ class RepoList extends Component {
     return (
         <div className={style.RepoList}>
           {
-            displayedRepos.slice(0, perPage.value).map(repo => (
-                <RepoCard repo={repo}/>
+            displayedRepos.slice(0, perPage.value).map((repo, i) => (
+                <RepoCard repo={repo} key={i.toString()}/>
             ))
           }
           <Pagination
