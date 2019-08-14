@@ -1,0 +1,61 @@
+.PaginationSection {
+  height: 20vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .PaginationContent {
+    width: 75%;
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .PageButton {
+    height: 40px;
+    border: 1px solid #D7DAE2;
+    display: flex;
+    border-radius: 3px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .15);
+
+    button:first-of-type {
+      border-right: 1px solid #D7DAE2;
+    }
+
+    .Button {
+      width: 80px;
+      border: none;
+      cursor: pointer;
+      background-color: #FFFFFF;
+      outline: none;
+    }
+
+    .ActiveNavigationButton {
+      width: 80px;
+      border: none;
+      cursor: pointer;
+      background-color: #FFFFFF;
+      outline: none;
+      color: #3B86FF;
+    }
+
+    .CurrentPageButton {
+      display: flex;
+    }
+
+    .CurrentPageButton > button {
+      outline: none;
+      display: flex;
+      border: none;
+      width: 4vw;
+      justify-content: center;
+      align-items: center;
+      border-right: 1px solid #D7DAE2;
+      cursor: pointer;
+    }
+
+    .ActivePage {
+      background-color: #3B86FF;
+      color: #FFFFFF;
+    }
+  }
+}

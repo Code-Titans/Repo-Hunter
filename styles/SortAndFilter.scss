@@ -1,0 +1,20 @@
+.SearchSection {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  font-family: Seravek-Light, serif;
+  background-color: #FFFFFF;
+  position: sticky;
+  top: 64px;
+  height: 10vh;
+  z-index: 99;
+
+  label {
+    padding: 15px;
+    font-weight: bold;
+  }
+
+  .SearchInput {
+    display: flex;
+  }
+}

@@ -1,0 +1,9 @@
+@import "UploadPost";
+
+.LoadingOverlay {
+  composes: Overlay;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+}

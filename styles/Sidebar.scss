@@ -1,0 +1,57 @@
+.Card {
+  background-color: #FFFFFF;
+  border: none;
+  box-shadow: 0 2px 5px 0 #CCCCCC;
+  padding: 16px;
+  font-family: Seravek-Light, serif;
+  width: 16vw;
+  height: fit-content;
+  position: sticky; top: 133px;
+  z-index: 999;
+
+  h2 {
+    font-weight: bold;
+    font-size: 20px;
+    margin-left: 14px;
+    margin-bottom: 10px;
+  }
+
+  ul {
+    border-bottom: solid 1px #000000;
+    border-top: solid 1px #000000;
+    list-style: none;
+    padding: 10px;
+    margin-bottom: 8px;
+
+    li {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #CCCCCC;
+        border-radius: 30px;
+      }
+
+      &:active {
+        background-color: #FFFFFF;
+        color: #000000;
+      }
+
+      span {
+        padding-left: 5px;
+        width: 105px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+
+  .ShowMore {
+    color: #3841A8;
+    margin-left: 10px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+}
