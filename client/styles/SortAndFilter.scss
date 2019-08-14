@@ -1,11 +1,13 @@
 .SearchSection {
   display: flex;
   justify-content: flex-end;
-  height: 10vh;
+  align-items: flex-end;
   font-family: Seravek-Light, serif;
   background-color: #FFFFFF;
-  //position: sticky; top: 87px;
-  //z-index: 999;
+  position: sticky;
+  top: 64px;
+  height: 10vh;
+  z-index: 99;
 
   label {
     padding: 15px;

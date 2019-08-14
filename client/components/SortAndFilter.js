@@ -32,11 +32,11 @@ class SortAndFilter extends Component {
           <div className={styles.SearchSection}>
             <div className={styles.SearchInput}>
               <label> Filter by:</label>
-              <Select options={filter} value={this.state.filter} onChange={this.handleChange}/>
+              <Select options={filter} value={this.state.filter} onChange={this.handleChange} instanceId='filter'/>
             </div>
             <div className={styles.SearchInput}>
               <label> Sort by:</label>
-              <Select options={sorting} value={this.state.sort} onChange={this.handleChange}/>
+              <Select options={sorting} value={this.state.sort} onChange={this.handleChange} instanceId='sort'/>
             </div>
           </div>
         </Fragment>
