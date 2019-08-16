@@ -1,4 +1,4 @@
-import { Component, Fragment } from 'react';
+import React, { Component, Fragment } from 'react';
 
 const styles = require('../styles/Sidebar.scss');
 
@@ -8,47 +8,56 @@ class Sidebar extends Component {
     this.state = {
       repos: [
         {
-          img: '../static/img/github-icon.svg',
+          img: 'https://res.cloudinary.com/dry-wolf/image/upload/v1564569484/repo-hunter/github-icon.svg',
           name: 'Repo Hunter',
         },
         {
-          img: '../static/img/github-icon.svg',
+          img: 'https://res.cloudinary.com/dry-wolf/image/upload/v1564569484/repo-hunter/github-icon.svg',
           name: 'React Apollo',
         },
         {
-          img: '../static/img/github-icon.svg',
+          img: 'https://res.cloudinary.com/dry-wolf/image/upload/v1564569484/repo-hunter/github-icon.svg',
           name: 'Apollo Client',
         },
         {
-          img: '../static/img/github-icon.svg',
+          img: 'https://res.cloudinary.com/dry-wolf/image/upload/v1564569484/repo-hunter/github-icon.svg',
           name: 'Drinks ChapChap',
         },
-      ]
+      ],
     };
   }
 
   showMoreRepos = () => {
-    console.log('show more repos')
+    console.log('show more repos');
   };
 
   render() {
     const { repos } = this.state;
-    // TODO: conditionally display the show more text which is also a button
+    // TODO:
+    //  conditionally display the show
+    //  more text which is also a button
     return (
       <Fragment>
         <div className={styles.Card}>
           <h2>My repos</h2>
           <ul>
             {
-              repos.map(repo => (
+              repos.map((repo) => (
                 <li key={repo.name}>
-                  <img src={repo.img} alt={repo.name}/>
+                  <img src={repo.img} alt={repo.name} />
                   <span>{repo.name}</span>
                 </li>
               ))
             }
           </ul>
-          <span onClick={this.showMoreRepos} className={styles.ShowMore}>Show more...</span>
+          <span
+            role="button"
+            tabIndex={0}
+            onClick={this.showMoreRepos}
+            className={styles.ShowMore}
+          >
+Show more...
+          </span>
         </div>
       </Fragment>
     );

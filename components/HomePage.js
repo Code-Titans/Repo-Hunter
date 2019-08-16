@@ -1,6 +1,6 @@
+import React, { Component } from 'react';
 import Layout from './Layout';
 import Sidebar from './Sidebar';
-import React, { Component } from 'react';
 import SortAndFilter from './SortAndFilter';
 import RepoList from './RepoList';
 
@@ -19,50 +19,54 @@ class HomePage extends Component {
     this.handleSearchSubmit = this.handleSearchSubmit.bind(this);
     this.handleProfileView = this.handleProfileView.bind(this);
     this.handleShowUploadForm = this.handleShowUploadForm.bind(this);
-  };
+  }
 
   handleSearch = (e) => {
     this.setState({
       [e.target.name]: e.target.value,
-    })
+    });
   };
 
   handleSearchSubmit = (e) => {
+    const { search } = this.state;
     e.preventDefault();
-    if (!this.state.search) {
-      console.log('nothing has been entered')
-    } else console.log(this.state.search)
+    if (!search) {
+      console.log('nothing has been entered');
+    } else console.log(search);
   };
 
   handleProfileView = () => {
+    const { viewProfile } = this.state;
     this.setState({
-      viewProfile: !this.state.viewProfile
-    })
+      viewProfile: !viewProfile,
+    });
   };
 
   handleShowUploadForm = () => {
+    const { uploadForm } = this.state;
     this.setState({
-      uploadForm : !this.state.uploadForm
-    })
+      uploadForm: !uploadForm,
+    });
   };
 
   render() {
+    const { viewProfile, uploadForm } = this.state;
     return (
       <Layout
         showProfile={this.handleProfileView}
-        viewProfile={this.state.viewProfile}
+        viewProfile={viewProfile}
         handleSearch={this.handleSearch}
         handleSearchSubmit={this.handleSearchSubmit}
         showUploadForm={this.handleShowUploadForm}
-        uploadForm={this.state.uploadForm}
+        uploadForm={uploadForm}
       >
-        <SortAndFilter/>
+        <SortAndFilter />
         <div className={styles.Container}>
-          <Sidebar/>
-          <RepoList/>
+          <Sidebar />
+          <RepoList />
         </div>
       </Layout>
-    )
+    );
   }
 }
 

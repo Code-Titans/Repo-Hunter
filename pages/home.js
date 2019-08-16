@@ -3,12 +3,9 @@ import withData from '../lib';
 import HomePage from '../components/HomePage';
 
 
-const Home = withData(() => {
-  return (
-    <HomePage/>
-  )
-});
-
+const Home = withData(() => (
+  <HomePage />
+));
 
 
 export default Home;

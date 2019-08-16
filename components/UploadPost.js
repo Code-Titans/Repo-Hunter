@@ -15,7 +15,7 @@ class UploadPost extends Component {
     };
   }
 
-  handleChange = e => {
+  handleChange = (e) => {
     this.setState({
       [e.target.name]: e.target.value,
     });
@@ -29,38 +29,56 @@ class UploadPost extends Component {
             if (error) {
               console.log(error.message);
             }
-            if (loading) return (<Loading/>);
+            if (loading) return (<Loading />);
             if (data) {
               console.log(data);
             }
             return (
               <div className={styles.Modal}>
-                <div className={styles.Overlay}/>
-                <form className={styles.UploadForm}
-                      onSubmit={ e => {
-                        e.preventDefault();
-                        postRepo({
-                          variables: {
-                            link: this.state.repoLink,
-                            description: this.state.description,
-                          }
-                        });
-                      }}>
+                <div className={styles.Overlay} />
+                <form
+                  className={styles.UploadForm}
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    postRepo({
+                      variables: {
+                        link: this.state.repoLink,
+                        description: this.state.description,
+                      },
+                    });
+                  }}
+                >
                   <label htmlFor="repoLink">Repository Link</label>
-                  <input className={styles.InputStyle} onChange={this.handleChange} type="text"
-                         name='repoLink'
-                         value={this.state.repoLink}
-                         placeholder='Repository name or link here..' required/>
-                  <label className={styles.DescriptionLabel} htmlFor="description">Description</label><br/>
-                  <textarea className={styles.InputStyle} onChange={this.handleChange}
-                         name='description'
-                         value={this.state.description}
-                         placeholder="Description of the repository's contents"/>
-                  <button type='submit'
-                          className={`${styles.PostButton} ${style.NewRepos}`}>POST
+                  <input
+                    className={styles.InputStyle}
+                    onChange={this.handleChange}
+                    type="text"
+                    name="repoLink"
+                    value={this.state.repoLink}
+                    placeholder="Repository name or link here.."
+                    required
+                  />
+                  <label className={styles.DescriptionLabel} htmlFor="description">Description</label>
+                  <br />
+                  <textarea
+                    className={styles.InputStyle}
+                    onChange={this.handleChange}
+                    name="description"
+                    value={this.state.description}
+                    placeholder="Description of the repository's contents"
+                  />
+                  <button
+                    type="submit"
+                    className={`${styles.PostButton} ${style.NewRepos}`}
+                  >
+POST
                   </button>
-                  <button type='reset' onClick={this.props.handleReset}
-                          className={`${styles.CancelButton} ${style.NewRepos}`}>CANCEL
+                  <button
+                    type="reset"
+                    onClick={this.props.handleReset}
+                    className={`${styles.CancelButton} ${style.NewRepos}`}
+                  >
+CANCEL
                   </button>
                 </form>
               </div>
