@@ -1,22 +1,14 @@
-import { Component } from 'react';
+import React from 'react';
 
 const styles = require('../styles/Loading.scss');
-class Loading extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      show: false,
-    }
-  }
 
-  render() {
-    return (
-      <div className={styles.LoadingOverlay}>
-          <img src="../static/img/spinner.svg" alt="spinner"/>
-      </div>
-    );
-  }
-
-}
+const Loading = () => (
+  <div className={styles.LoadingOverlay}>
+    <img
+      src="https://res.cloudinary.com/dry-wolf/image/upload/v1564569484/repo-hunter/spinner.svg"
+      alt="spinner"
+    />
+  </div>
+);
 
 export default Loading;

@@ -1,14 +1,12 @@
 import React from 'react';
-import Layout from "../components/Layout"
+import Layout from '../components/Layout';
 import Login from '../components/Login';
-import withData from "../lib";
+import withData from '../lib';
 
-const Index = withData(() => {
-  return (
-    <Layout>
-      <Login/>
-    </Layout>
-  )
-});
+const Index = withData(() => (
+  <Layout>
+    <Login />
+  </Layout>
+));
 
 export default Index;

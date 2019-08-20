@@ -1,26 +1,38 @@
 import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
 import UploadPost from './UploadPost';
+
 const styles = require('../styles/Header.scss');
 
-const Header = (props) => {
-  return (
-    <nav className={styles.Header}>
-      <div className={styles.Logo}>
-        Repo<span className={styles.LogoDesign}>Hunter</span>
-      </div>
-      {props.children}
-    </nav>
-  )
+const Header = ({ children }) => (
+  <nav className={styles.Header}>
+    <div className={styles.Logo}>
+        Repo
+      <span className={styles.LogoDesign}>Hunter</span>
+    </div>
+    {children}
+  </nav>
+);
+
+Header.propTypes = {
+  children: PropTypes.shape({}).isRequired,
 };
 
 export const HeaderLoggedInView = (props) => {
-  const { handleSearchSubmit, handleSearch, showUploadForm, showProfile, viewProfile, uploadForm } = props;
+  const {
+    handleSearchSubmit,
+    handleSearch,
+    showUploadForm,
+    showProfile,
+    viewProfile,
+    uploadForm,
+  } = props;
   return (
     <Fragment>
       <form onSubmit={handleSearchSubmit}>
         <div className={styles.SearchBlock}>
           <img
-            src="../static/img/search_icon.svg"
+            src="https://res.cloudinary.com/dry-wolf/image/upload/v1564569484/repo-hunter/search_icon.svg"
             alt="search_icon"
             className={styles.SearchInputIcon}
           />
@@ -33,15 +45,26 @@ export const HeaderLoggedInView = (props) => {
           />
         </div>
       </form>
-      <button name="new-repo" onClick={showUploadForm} className={styles.NewRepos}>
+      <button
+        type="button"
+        name="new-repo"
+        onClick={showUploadForm}
+        className={styles.NewRepos}
+      >
         NEW REPO
       </button>
-      { uploadForm ? <UploadPost handleReset={showUploadForm}/> : null }
+      { uploadForm ? <UploadPost handleReset={showUploadForm} /> : null }
       <div className={styles.Profile}>
-        <img onClick={showProfile} role='button' src="../static/img/profile-pic.svg" alt="profile-pic"/>
-        <div className={ viewProfile
+        <img
+          role="button"
+          onClick={showProfile}
+          src="https://res.cloudinary.com/dry-wolf/image/upload/v1564569696/repo-hunter/profile-pic.svg"
+          alt="profile-pic"
+        />
+        <div className={viewProfile
           ? `${styles.ProfileDropdown}`
-          : `${styles.ProfileDropdown} ${styles.DisplayNone}` }>
+          : `${styles.ProfileDropdown} ${styles.DisplayNone}`}
+        >
           <span>Bryan Cee</span>
           <ul>
             <li id="profile">
@@ -57,7 +80,16 @@ export const HeaderLoggedInView = (props) => {
         </div>
       </div>
     </Fragment>
-  )
+  );
+};
+
+HeaderLoggedInView.propTypes = {
+  handleSearchSubmit: PropTypes.func.isRequired,
+  handleSearch: PropTypes.func.isRequired,
+  showUploadForm: PropTypes.bool.isRequired,
+  showProfile: PropTypes.func.isRequired,
+  viewProfile: PropTypes.func.isRequired,
+  uploadForm: PropTypes.func.isRequired,
 };
 
 export default Header;
