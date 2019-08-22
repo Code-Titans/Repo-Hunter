@@ -50,7 +50,7 @@ const AuthLoading = ({ url }) => {
 AuthLoading.propTypes = {
   url: PropTypes.shape({
     query: PropTypes.shape({
-      code: PropTypes.number.isRequired,
+      code: PropTypes.string.isRequired,
     }).isRequired,
   }).isRequired,
 };
