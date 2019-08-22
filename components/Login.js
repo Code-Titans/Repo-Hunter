@@ -1,10 +1,10 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import Router from 'next/router';
 import { Mutation } from 'react-apollo';
-import { LOGIN, SIGN_UP } from '../gql';
+import { SIGN_UP, GITHUB_AUTH } from '../gql';
+import Loading from './Loading';
 
 const styles = require('../styles/Login.scss');
-
 
 class Login extends Component {
   constructor(props) {
@@ -34,16 +34,16 @@ class Login extends Component {
 
   render() {
     const {
-      loginForm, email, password, confirmPassword, passwordType,
+      loginForm
     } = this.state;
     return (
-      <Mutation mutation={loginForm ? LOGIN : SIGN_UP}>
+      <Mutation mutation={loginForm ? GITHUB_AUTH : SIGN_UP}>
         {
-          (login, { error, loading, data }) => {
+          (githubAuth, { error, loading, data }) => {
             if (error) {
               console.log(error.message);
             }
-            if (loading) return <p>Loading...</p>;
+            if (loading) return <Loading/>;
 
             if (data && (data.login || data.register)) {
               const { token, user } = data.login || data.register;
@@ -55,100 +55,17 @@ class Login extends Component {
             }
             return (
               <div className={styles.Login}>
-                <div className={styles.LoginTriangleLeft} />
-                <form
+                <div
                   className={styles.LoginForm}
-                  onSubmit={(e) => {
-                    e.preventDefault();
-                    login({
-                      variables: {
-                        email: this.state.email,
-                        password: this.state.password,
-                      },
-                    });
-                  }}
                 >
-                  {loginForm ? <span>Login</span> : <span>Sign Up</span>}
-                  <hr />
-                  <label htmlFor="email">Email</label>
-                  <input
-                    type="email"
-                    name="email"
-                    value={email}
-                    placeholder="janedoe@example.com"
-                    onChange={this.handleOnchange}
-                    required
-                  />
-
-                  <label htmlFor="password">Password</label>
-                  <input
-                    type={passwordType ? 'password' : 'text'}
-                    name="password"
-                    placeholder="*********"
-                    onChange={this.handleOnchange}
-                    value={password}
-                    required
-                  />
-                  <span
-                    role="button"
-                    className={styles.LoginShowPassword}
-                    onClick={this.togglePasswordView}
+                  <a
+                    href={`https://github.com/login/oauth/authorize?response_type=code&scope=user%3Aemail&client_id=${process.env.ACCESS_TOKEN}`}
+                    className={styles.LoginFormSocial}
                   >
-                    <img
-                      src="https://res.cloudinary.com/dry-wolf/image/upload/v1564569484/repo-hunter/view-password.svg"
-                      alt="view-password-eye"
-                    />
-                  </span>
-                  {/* <span className={styles.Error}>{error}</span> */}
-
-                  {!loginForm
-                    ? (
-                      <Fragment>
-                        <label htmlFor="confirmPassword">
-                          Confirm Password
-                        </label>
-                        <input
-                          type={passwordType ? 'password' : 'text'}
-                          name="confirmPassword"
-                          placeholder="*********"
-                          onChange={this.handleOnchange}
-                          value={confirmPassword}
-                          required
-                        />
-                      </Fragment>
-                    )
-                    : null}
-                  {loginForm ? <span className={styles.LoginFormFPassword}>Forgot Password?</span> : null}
-                  {loginForm
-                    ? (
-                      <button
-                        type="submit"
-                        disabled={!email || !password}
-                        className={(!email || !password) ? styles.Disabled : ''}
-                      >
-                        LOGIN
-                      </button>
-                    )
-                    : (
-                      <button
-                        type="submit"
-                        disabled={(!email || !password || !confirmPassword || !(password === confirmPassword))}
-                        className={
-                          (!email || !password || !confirmPassword || !(password === confirmPassword))
-                            ? styles.Disabled
-                            : ''
-                        }
-                      >
-                        SIGN UP
-                      </button>
-                    )}
-                </form>
-                {/* TODO fix social authentication */}
-                {/* { loginForm ? <p>or login with</p>: <p>or create account with</p>} */}
-                {/* <div className={styles.LoginSocial}> */}
-                {/*  <a href="#"><img src={"/static/img/google-icon.svg"} alt="google"/></a> */}
-                {/*  <a href="#"><img src={"/static/img/github-icon.svg"} alt="github"/></a> */}
-                {/* </div> */}
+                    <span>Sign up with</span>
+                    <img src={"/static/img/github-icon.svg"} alt="github"/>
+                  </a>
+                </div>
                 {loginForm
                   ? (
                     <p>
@@ -162,7 +79,6 @@ class Login extends Component {
                       <span onClick={this.handleForm}>Log in</span>
                     </p>
                   )}
-                <div className={styles.LoginTriangleRight} />
               </div>
             );
           }
