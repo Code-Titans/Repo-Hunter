@@ -1,20 +1,27 @@
-.SearchSection {
+.FilterSortSection {
   display: flex;
   justify-content: flex-end;
-  align-items: flex-end;
+  align-items: center;
   font-family: Seravek-Light, serif;
   background-color: #FFFFFF;
-  position: sticky;
+  position: fixed;
+  width: 100%;
   top: 64px;
+  left: 0;
   height: 10vh;
   z-index: 99;
 
-  span {
+  p {
     padding: 15px;
     font-weight: bold;
   }
 
-  .SearchInput {
+  .FilterInput {
     display: flex;
+  }
+
+  .SortInput {
+    display: flex;
+    margin-right: 15%;
   }
 }
