@@ -33,9 +33,9 @@ class SortAndFilter extends Component {
     const { filter, sort } = this.state;
     return (
       <Fragment>
-        <div className={styles.SearchSection}>
-          <div className={styles.SearchInput}>
-            <span> Filter by:</span>
+        <div className={styles.FilterSortSection}>
+          <div className={styles.FilterInput}>
+            <p> Filter by:</p>
             <Select
               options={filtering}
               value={filter}
@@ -43,8 +43,8 @@ class SortAndFilter extends Component {
               instanceId="filter"
             />
           </div>
-          <div className={styles.SearchInput}>
-            <span> Sort by:</span>
+          <div className={styles.SortInput}>
+            <p> Sort by:</p>
             <Select
               options={sorting}
               value={sort}
