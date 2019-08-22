@@ -24,6 +24,16 @@ export const SIGN_UP = gql`
     }
 `;
 
+export const GITHUB_AUTH = gql`
+    mutation githubAuth($code: String!) {
+        gitHubAuth(code: $code) {
+            access_token,
+            token_type,
+            scope
+        }
+    }
+`;
+
 export const POST_REPO = gql`
     mutation PostRepo($link: String!, $description: String!){
         postRepo(link:$link, description: $description){

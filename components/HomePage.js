@@ -5,7 +5,9 @@ import SortAndFilter from './SortAndFilter';
 import RepoList from './RepoList';
 
 const styles = require('../styles/HomePage.scss');
-
+// TODO:
+//  Query for the repository
+//  list with the token from localStorage
 class HomePage extends Component {
   constructor(props) {
     super(props);
