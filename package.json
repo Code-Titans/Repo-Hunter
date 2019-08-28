@@ -11,7 +11,7 @@
     "build": "next build",
     "start": "next start -p $PORT",
     "lint": "eslint .",
-    "test": "jest test",
+    "test": "jest  --updateSnapshot",
     "test:coverage": "jest --collectCoverage"
   },
   "dependencies": {
