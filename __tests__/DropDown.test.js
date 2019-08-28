@@ -13,14 +13,16 @@ describe('DropDown component', () => {
   const props = {
     value: '',
     defaultInputValue: '',
-    onchange: jest.fn(),
+    onChange: jest.fn(),
     instanceId: 'kimame',
     options: sorting,
   };
   beforeEach(() => {
+    // eslint-disable-next-line react/jsx-props-no-spreading
     wrapper = mount(<DropDown {...props} />);
   });
 
   it('should render DropDown component', () => {
+    expect(wrapper).toMatchSnapshot();
   });
 });
