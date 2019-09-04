@@ -16,18 +16,18 @@ class HomePage extends Component {
     };
   }
 
-  handleSearch = (e) => {
+  handleSearch = e => {
     this.setState({
       [e.target.name]: e.target.value,
     });
   };
 
-  handleSearchSubmit = (e) => {
+  handleSearchSubmit = e => {
     const { search } = this.state;
     e.preventDefault();
     if (!search) {
       console.log('nothing has been entered');
-    } else console.log(search);
+    }
   };
 
   handleProfileView = () => {
