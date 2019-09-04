@@ -650,3 +650,23 @@ export const Repos = [
     starsGazers: 4309,
   },
 ];
+
+
+export const SidebarRepos = [
+  {
+    img: 'https://res.cloudinary.com/dry-wolf/image/upload/v1564569484/repo-hunter/github-icon.svg',
+    name: 'Repo Hunter',
+  },
+  {
+    img: 'https://res.cloudinary.com/dry-wolf/image/upload/v1564569484/repo-hunter/github-icon.svg',
+    name: 'React Apollo',
+  },
+  {
+    img: 'https://res.cloudinary.com/dry-wolf/image/upload/v1564569484/repo-hunter/github-icon.svg',
+    name: 'Apollo Client',
+  },
+  {
+    img: 'https://res.cloudinary.com/dry-wolf/image/upload/v1564569484/repo-hunter/github-icon.svg',
+    name: 'Drinks ChapChap',
+  },
+];

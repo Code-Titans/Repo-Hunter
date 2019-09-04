@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useMutation } from '@apollo/react-hooks';
 import PropTypes from 'prop-types';
 import Router from 'next/router';
 import { Mutation } from 'react-apollo';
@@ -10,10 +11,10 @@ class CallLoginMutation extends React.Component {
   async componentDidMount() {
     const { called, githubAuth } = this.props;
     if (!called) {
-      const { data: { gitHubAuth } } = await githubAuth();
-      if (gitHubAuth) {
-        localStorage.setItem('token', gitHubAuth.access_token);
-        Router.push('/home');
+      const { data: { gitHubAuth: { token } } } = await githubAuth();
+      if (token) {
+        localStorage.setItem('token', token);
+        // Router.push('/home',);
       }
     }
   }
@@ -27,32 +28,43 @@ CallLoginMutation.propTypes = {
   called: PropTypes.bool.isRequired,
   githubAuth: PropTypes.func.isRequired,
 };
+// TODO: Make a universal error handling class for the error boundary
+// TODO: Create an error boundary
+const AuthLoading = (props) => {
+  console.log("AuthLoading ==> ",props);
+  const [token, setToken] = useState("");
+  const [githubAuth] = useMutation(GITHUB_AUTH);
 
-// TODO:
-//  Create an error boundary
-const AuthLoading = ({ url }) => {
-  const { code } = url.query;
-  return (
-    <Mutation mutation={GITHUB_AUTH} variables={{ code }}>
-      {
-        (githubAuth, { error, loading, called }) => {
-          if (error) console.log(error.message);
-          if (loading) return <Loading />;
-          return (
-            <CallLoginMutation githubAuth={githubAuth} called={called} />
-          );
-        }
-      }
-    </Mutation>
-  );
+  useEffect(() => {
+    console.log('Calling mutation');
+    setToken("hello")
+  }, []);
+
+  console.log(token);
+  return <Loading/>
 };
 
+AuthLoading.getInitialProps = ctx => {
+  console.log('Authloading ')
+  return { client: ctx.apolloClient };
+};
+
+const AuthLoadig = ({ code }) => (
+  <Mutation mutation={GITHUB_AUTH} variables={{ code }}>
+    {
+      (githubAuth, { error, loading, called }) => {
+        if (error) return (error);
+        if (loading) return <Loading />;
+        return (
+          <CallLoginMutation githubAuth={githubAuth} called={called} />
+        );
+      }
+    }
+  </Mutation>
+);
+
 AuthLoading.propTypes = {
-  url: PropTypes.shape({
-    query: PropTypes.shape({
-      code: PropTypes.string.isRequired,
-    }).isRequired,
-  }).isRequired,
+  code: PropTypes.string.isRequired,
 };
 
 

@@ -6,7 +6,7 @@ const style = require('../styles/RepoList.scss');
 
 const RepoCard = ({ repo }) => {
   const {
-    imageUrl, username, description, likes, comments, starsGazers,
+    imageUrl, title, description, likes, comments, starsGazers,
   } = repo;
   return (
     <div className={style.Card}>
@@ -16,7 +16,7 @@ const RepoCard = ({ repo }) => {
       />
       <div className={style.CardContent}>
         <div className={style.CardContentText}>
-          <h2>{username}</h2>
+          <h2>{title}</h2>
           <p className={style.CardContentTextDesc}>
             {description}
           </p>
@@ -45,7 +45,7 @@ const RepoCard = ({ repo }) => {
 RepoCard.propTypes = {
   repo: PropTypes.shape({
     imageUrl: PropTypes.string.isRequired,
-    username: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     likes: PropTypes.number.isRequired,
     comments: PropTypes.number.isRequired,

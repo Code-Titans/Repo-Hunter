@@ -27,12 +27,25 @@ export const SIGN_UP = gql`
 export const GITHUB_AUTH = gql`
     mutation githubAuth($code: String!) {
         gitHubAuth(code: $code) {
-            access_token,
-            token_type,
-            scope
+            token
         }
     }
 `;
+
+export const REPO_LIST = gql`
+    {
+        repoList{
+            id
+            imageUrl
+            description
+            comments
+            likes
+            title
+            starsGazers
+        }
+    }
+`;
+
 
 export const POST_REPO = gql`
     mutation PostRepo($link: String!, $description: String!){
