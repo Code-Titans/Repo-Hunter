@@ -28,6 +28,7 @@
       "error",
       "always"
     ],
+    "react/jsx-props-no-spreading": 0,
     "react/jsx-fragments": 0,
     "complexity": [
       "error",

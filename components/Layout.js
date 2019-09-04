@@ -14,8 +14,7 @@ const Layout = (props) => {
     uploadForm,
     children,
   } = props;
-  // TODO:
-  //  check for login details then show the rest
+  // TODO: check for login details then show the rest
   //  of the the header section
   return (
     <div className={styles.Layout}>

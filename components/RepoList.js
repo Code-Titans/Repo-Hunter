@@ -11,8 +11,12 @@ class RepoList extends Component {
     this.state = {
       currentPage: 1,
       perPage: { value: 10, label: '10 / page' },
-      displayedRepos: Repos,
+      repos: Repos,
     };
+  }
+
+  componentDidMount() {
+    // TODO: call the repository list mutation
   }
 
   renderRepos = ({ value, label }) => {
@@ -29,11 +33,11 @@ class RepoList extends Component {
   };
 
   render() {
-    const { displayedRepos, perPage, currentPage } = this.state;
+    const { repos, perPage, currentPage } = this.state;
     return (
       <div className={style.RepoList}>
         {
-          displayedRepos.slice(0, perPage.value).map((repo, i) => (
+          repos.slice(0, perPage.value).map((repo, i) => (
             <RepoCard repo={repo} key={i.toString()} />
           ))
         }

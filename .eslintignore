@@ -1,2 +1,5 @@
 fixtures/
 .next/
+
+Pagination.js
+UploadPost.js

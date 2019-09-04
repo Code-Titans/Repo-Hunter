@@ -1,12 +1,14 @@
 .Card {
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   border: none;
-  box-shadow: 0 2px 5px 0 #CCCCCC;
+  box-shadow: 0 2px 5px 0 #cccccc;
   padding: 16px;
   font-family: Seravek-Light, serif;
   width: 16vw;
+  min-width: 178px;
   height: fit-content;
-  position: sticky; top: 133px;
+  position: sticky;
+  top: 133px;
   z-index: 999;
 
   h2 {
@@ -16,7 +18,11 @@
     margin-bottom: 10px;
   }
 
-  ul {
+  .NullSidebarRepoList {
+    padding-left: 14px !important;
+  }
+
+  .SidebarRepoList {
     border-bottom: solid 1px #000000;
     border-top: solid 1px #000000;
     list-style: none;
@@ -29,12 +35,12 @@
       cursor: pointer;
 
       &:hover {
-        background-color: #CCCCCC;
+        background-color: #cccccc;
         border-radius: 30px;
       }
 
       &:active {
-        background-color: #FFFFFF;
+        background-color: #ffffff;
         color: #000000;
       }
 
@@ -49,7 +55,7 @@
   }
 
   .ShowMore {
-    color: #3841A8;
+    color: #3841a8;
     margin-left: 10px;
     font-size: 14px;
     cursor: pointer;
