@@ -4,7 +4,7 @@ import Header, { HeaderLoggedInView } from './Header';
 
 const styles = require('../styles/Layout.scss');
 
-const Layout = (props) => {
+const Layout = props => {
   const {
     handleSearch,
     handleSearchSubmit,

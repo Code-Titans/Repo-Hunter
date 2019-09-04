@@ -4,7 +4,7 @@ const withSass = require('@zeit/next-sass');
 
 module.exports = withSass({
   cssModules: true,
-  webpack: (config) => {
+  webpack: config => {
     config.plugins.push(new webpack.EnvironmentPlugin(process.env));
     return config;
   },

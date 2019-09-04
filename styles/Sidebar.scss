@@ -1,7 +1,9 @@
+@import "foundation/variables";
+
 .Card {
-  background-color: #ffffff;
+  background-color: $white;
   border: none;
-  box-shadow: 0 2px 5px 0 #cccccc;
+  box-shadow: 0 2px 5px 0 $grey;
   padding: 16px;
   font-family: Seravek-Light, serif;
   width: 16vw;
@@ -18,15 +20,18 @@
     margin-bottom: 10px;
   }
 
-  .NullSidebarRepoList {
-    padding-left: 14px !important;
+  .NullRepoList {
+    padding: 10px 10px 10px 14px;
+  }
+
+  .NonNullRepoList {
+    padding: 10px;
   }
 
   .SidebarRepoList {
-    border-bottom: solid 1px #000000;
-    border-top: solid 1px #000000;
+    border-bottom: solid 1px $black;
+    border-top: solid 1px $black;
     list-style: none;
-    padding: 10px;
     margin-bottom: 8px;
 
     li {
@@ -35,13 +40,13 @@
       cursor: pointer;
 
       &:hover {
-        background-color: #cccccc;
+        background-color: $grey;
         border-radius: 30px;
       }
 
       &:active {
-        background-color: #ffffff;
-        color: #000000;
+        background-color: $white;
+        color: $black;
       }
 
       span {
@@ -55,7 +60,7 @@
   }
 
   .ShowMore {
-    color: #3841a8;
+    color: $primary-blue;
     margin-left: 10px;
     font-size: 14px;
     cursor: pointer;

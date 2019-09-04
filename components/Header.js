@@ -18,7 +18,7 @@ Header.propTypes = {
   children: PropTypes.shape({}).isRequired,
 };
 
-export const HeaderLoggedInView = (props) => {
+export const HeaderLoggedInView = props => {
   const {
     handleSearchSubmit,
     handleSearch,
