@@ -11,7 +11,7 @@ const Layout = props => {
   return (
     <div className={styles.Layout}>
       <Header>
-        <HeaderLoggedInView picture={picture}/>
+        <HeaderLoggedInView picture={picture} />
       </Header>
       <div className={styles.Section}>
         {children}
@@ -21,7 +21,8 @@ const Layout = props => {
 };
 
 Layout.propTypes = {
-  children: PropTypes.array.isRequired,
+  children: PropTypes.arrayOf(PropTypes.any).isRequired,
+  picture: PropTypes.string.isRequired,
 };
 
 export default Layout;

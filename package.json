@@ -30,7 +30,8 @@
     "react": "^16.8.6",
     "react-apollo": "^2.5.8",
     "react-dom": "^16.8.6",
-    "react-select": "^3.0.4"
+    "react-select": "^3.0.4",
+    "webpack": "latest"
   },
   "devDependencies": {
     "dotenv": "^8.1.0",
@@ -40,7 +41,6 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.14.3",
     "eslint-plugin-react-hooks": "^1.7.0",
-    "jest": "^24.9.0",
-    "webpack": "latest"
+    "jest": "^24.9.0"
   }
 }
