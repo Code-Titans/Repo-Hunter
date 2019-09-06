@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { useMutation } from '@apollo/react-hooks';
 import { GITHUB_AUTH } from '../gql';
 import Loading from '../components/Loading';
+import jwt from 'jsonwebtoken';
 
 const Auth = ({ code }) => {
   const [githubAuth] = useMutation(GITHUB_AUTH);
@@ -15,14 +16,23 @@ const Auth = ({ code }) => {
   };
   useEffect(() => {
     callMutation(code)
-      .then(token => {
-        localStorage.setItem('token', token);
-        Router.push('/home');
-      })
-      .catch(err => err.message);
+    .then(token => {
+      const {
+        data: {
+          accessToken, picture, username, id
+        }
+      } = jwt.verify(token, process.env.SECRET_KEY);
+      localStorage.setItem('token', token);
+      localStorage.setItem('picture', picture);
+      localStorage.setItem('username', username);
+      localStorage.setItem('id', id);
+      localStorage.setItem('accessToken', accessToken);
+      Router.push('/home');
+    })
+    .catch(err => err.message);
   }, []);
 
-  return <Loading />;
+  return <Loading/>;
 };
 
 Auth.getInitialProps = ctx => {
