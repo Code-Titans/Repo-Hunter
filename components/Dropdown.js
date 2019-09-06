@@ -20,7 +20,10 @@ const DropDown = ({
 );
 
 DropDown.propTypes = {
-  options: PropTypes.array.isRequired,
+  options: PropTypes.arrayOf(PropTypes.shape({
+    value: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+  }).isRequired).isRequired,
   onChange: PropTypes.func.isRequired,
   value: PropTypes.string.isRequired,
   defaultInputValue: PropTypes.string.isRequired,
