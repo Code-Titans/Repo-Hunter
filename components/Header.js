@@ -19,17 +19,9 @@ Header.propTypes = {
 };
 
 export const HeaderLoggedInView = props => {
-  const {
-    handleSearchSubmit,
-    handleSearch,
-    showUploadForm,
-    showProfile,
-    viewProfile,
-    uploadForm,
-  } = props;
   return (
     <Fragment>
-      <form onSubmit={handleSearchSubmit}>
+      <form>
         <div className={styles.SearchBlock}>
           <img
             src="https://res.cloudinary.com/dry-wolf/image/upload/v1564569484/repo-hunter/search_icon.svg"
@@ -41,55 +33,23 @@ export const HeaderLoggedInView = props => {
             name="search"
             placeholder="Search for repository..."
             className={styles.SearchInput}
-            onInput={handleSearch}
           />
         </div>
       </form>
-      <button
-        type="button"
-        name="new-repo"
-        onClick={showUploadForm}
-        className={styles.NewRepos}
-      >
-        NEW REPO
-      </button>
-      { uploadForm ? <UploadPost handleReset={showUploadForm} /> : null }
       <div className={styles.Profile}>
         <img
           role="button"
-          onClick={showProfile}
-          src="https://res.cloudinary.com/dry-wolf/image/upload/v1564569696/repo-hunter/profile-pic.svg"
+          src={props.picture}
           alt="profile-pic"
         />
-        <div className={viewProfile
-          ? `${styles.ProfileDropdown}`
-          : `${styles.ProfileDropdown} ${styles.DisplayNone}`}
-        >
-          <span>Bryan Cee</span>
-          <ul>
-            <li id="profile">
-              Profile
-            </li>
-            <li id="user">
-              Users
-            </li>
-            <li id="logout">
-              Logout
-            </li>
-          </ul>
-        </div>
+        <div>Bryan-Cee</div>
       </div>
     </Fragment>
   );
 };
 
 HeaderLoggedInView.propTypes = {
-  handleSearchSubmit: PropTypes.func.isRequired,
-  handleSearch: PropTypes.func.isRequired,
-  showUploadForm: PropTypes.bool.isRequired,
-  showProfile: PropTypes.func.isRequired,
-  viewProfile: PropTypes.func.isRequired,
-  uploadForm: PropTypes.func.isRequired,
+  picture: PropTypes.string.isRequired,
 };
 
 export default Header;

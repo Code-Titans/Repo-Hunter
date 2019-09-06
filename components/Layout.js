@@ -5,28 +5,13 @@ import Header, { HeaderLoggedInView } from './Header';
 const styles = require('../styles/Layout.scss');
 
 const Layout = props => {
-  const {
-    handleSearch,
-    handleSearchSubmit,
-    viewProfile,
-    showUploadForm,
-    showProfile,
-    uploadForm,
-    children,
-  } = props;
+  const { children, picture } = props;
   // TODO: check for login details then show the rest
   //  of the the header section
   return (
     <div className={styles.Layout}>
       <Header>
-        <HeaderLoggedInView
-          viewProfile={viewProfile}
-          handleSearchSubmit={handleSearchSubmit}
-          handleSearch={handleSearch}
-          showProfile={showProfile}
-          uploadForm={uploadForm}
-          showUploadForm={showUploadForm}
-        />
+        <HeaderLoggedInView picture={picture}/>
       </Header>
       <div className={styles.Section}>
         {children}
@@ -36,13 +21,7 @@ const Layout = props => {
 };
 
 Layout.propTypes = {
-  handleSearchSubmit: PropTypes.func.isRequired,
-  handleSearch: PropTypes.func.isRequired,
-  showUploadForm: PropTypes.bool.isRequired,
-  showProfile: PropTypes.func.isRequired,
-  viewProfile: PropTypes.func.isRequired,
-  uploadForm: PropTypes.func.isRequired,
-  children: PropTypes.shape({}).isRequired,
+  children: PropTypes.array.isRequired,
 };
 
 export default Layout;
