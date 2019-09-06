@@ -7,13 +7,13 @@ import withApollo from '../lib/with-apollo';
 
 class MyApp extends App {
   state = {
-    user: {}
+    user: {},
   };
 
   componentDidMount = () => {
     const token = localStorage.getItem('token');
 
-    if (token){
+    if (token) {
       try {
         jwt.verify(token, process.env.SECRET_KEY);
         if (this.props.router.route === '/') {
@@ -26,22 +26,23 @@ class MyApp extends App {
           Router.push('/');
         }
       }
-    } else {
-      if (this.props.router.route !== '/auth' && this.props.router.route !== '/') {
-        Router.push('/');
-      }
+    } else if (this.props.router.route !== '/auth'
+      && this.props.router.route !== '/') {
+      Router.push('/');
     }
   };
 
   render() {
     const { Component, pageProps, apollo } = this.props;
-    //TODO
-    // check the localstorage for a token then
-    // decrypt the token and access the data to use in the homepage
+    // TODO
+    // check the localstorage for
+    // a token then decrypt the token
+    // and access the data to use in
+    // the homepage
     return (
       <Container>
         <ApolloProvider client={apollo}>
-          <Component {...pageProps} {...this.state.user}/>
+          <Component {...pageProps} {...this.state.user} />
         </ApolloProvider>
       </Container>
     );

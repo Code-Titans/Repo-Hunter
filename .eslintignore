@@ -3,3 +3,4 @@ fixtures/
 
 Pagination.js
 UploadPost.js
+jest.config.js
