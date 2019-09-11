@@ -3,6 +3,12 @@ module.exports = {
   setupFilesAfterEnv: [
     './setupTests.js',
   ],
+  collectCoverageFrom: [
+    "**/components/*.{js,jsx}",
+    "**/pages/*.{js,jsx}",
+    "!**/node_modules/**",
+    "!**/cypress/**"
+  ],
   coverageThreshold: {
     global: {
       branches: 100,

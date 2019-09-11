@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 const styles = require('../styles/Header.scss');
@@ -17,8 +17,8 @@ Header.propTypes = {
   children: PropTypes.shape({}).isRequired,
 };
 
-export const HeaderLoggedInView = ({ picture }) => (
-  <Fragment>
+export const HeaderLoggedInView = () => (
+  <>
     <form>
       <div className={styles.SearchBlock}>
         <img
@@ -37,16 +37,12 @@ export const HeaderLoggedInView = ({ picture }) => (
     <div className={styles.Profile}>
       <img
         role="button"
-        src={picture}
+        src="../static/img/profile-pic.svg"
         alt="profile-pic"
       />
       <div>Bryan-Cee</div>
     </div>
-  </Fragment>
+  </>
 );
-
-HeaderLoggedInView.propTypes = {
-  picture: PropTypes.string.isRequired,
-};
 
 export default Header;

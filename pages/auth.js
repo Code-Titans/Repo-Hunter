@@ -7,7 +7,7 @@ import { GITHUB_AUTH } from '../gql';
 import Loading from '../components/Loading';
 
 const Auth = ({ code }) => {
-  const [githubAuth] = useMutation(GITHUB_AUTH);
+  const [githubAuth , { loading, error }] = useMutation(GITHUB_AUTH);
   const callMutation = async authCode => {
     const { data: { gitHubAuth: { token } } } = await githubAuth({
       variables: { code: authCode },
@@ -32,6 +32,8 @@ const Auth = ({ code }) => {
       .catch(err => err.message);
   }, []);
 
+  if (loading) return <Loading />;
+  if (error) return <p>Error!</p>;
   return <Loading />;
 };
 

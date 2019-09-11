@@ -6,7 +6,7 @@ import Sidebar from '../components/Sidebar';
 import RepoList from '../components/RepoList';
 
 const Home = () => (
-  <Layout picture="https://avatars1.githubusercontent.com/u/19145546?v=4">
+  <Layout>
     <SortAndFilter />
     <div className={styles.Container}>
       <Sidebar />

@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 
-import DropDown from '../components/Dropdown';
+import DropDown from '../../components/Dropdown';
 
 const sorting = [
   { value: 'Most', label: 'Most', name: 'sort' },
