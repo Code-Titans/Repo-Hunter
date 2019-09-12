@@ -17,17 +17,8 @@ const Auth = ({ code }) => {
   useEffect(() => {
     callMutation(code)
       .then(token => {
-        const {
-          data: {
-            accessToken, picture, username, id,
-          },
-        } = jwt.verify(token, process.env.SECRET_KEY);
         localStorage.setItem('token', token);
-        localStorage.setItem('picture', picture);
-        localStorage.setItem('username', username);
-        localStorage.setItem('id', id);
-        localStorage.setItem('accessToken', accessToken);
-        Router.push('/home');
+        Router.push('/');
       })
       .catch(err => err.message);
   }, []);

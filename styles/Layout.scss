@@ -31,6 +31,7 @@ body {
 
 .Layout {
   margin: auto;
+  height: 100%;
   width: 100%;
 }
 
@@ -39,7 +40,7 @@ body {
   display: grid;
   height: 80vh;
   justify-items: center;
-  margin: 4em auto 0;
+  margin: 1em auto;
   position: relative;
   width: 84%;
 }

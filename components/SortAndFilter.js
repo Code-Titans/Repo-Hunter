@@ -1,8 +1,6 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import Select from './Dropdown';
-
-const styles = require('../styles/SortAndFilter.scss');
-
+import styles from '../styles/SortAndFilter.scss';
 
 const filtering = [
   { value: 'Likes', label: 'Likes', name: 'filter' },
@@ -32,7 +30,7 @@ class SortAndFilter extends Component {
   render() {
     const { filter, sort } = this.state;
     return (
-      <Fragment>
+      <>
         <div className={styles.FilterSortSection}>
           <div className={styles.FilterInput}>
             <p> Filter by:</p>
@@ -53,7 +51,7 @@ class SortAndFilter extends Component {
             />
           </div>
         </div>
-      </Fragment>
+      </>
     );
   }
 }

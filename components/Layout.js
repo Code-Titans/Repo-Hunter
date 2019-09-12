@@ -1,28 +1,86 @@
-import React from 'react';
+import React, { Component, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import Header, { HeaderLoggedInView } from './Header';
+import styles from '../styles/Layout.scss';
+import Header from './Header';
+import jwt from 'jsonwebtoken';
 
-const styles = require('../styles/Layout.scss');
+export const UserContext = React.createContext();
 
-const Layout = props => {
-  const { children, picture } = props;
-  // TODO: check for login details then show the rest
-  //  of the the header section
+// class Layout extends Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       isLoggedIn: false,
+//       accessToken: ''
+//     }
+//   }
+//
+//   componentDidMount() {
+//     const { isLoggedIn } = this.state;
+//     const token = localStorage.getItem('token');
+//     if (token){
+//       const {
+//         data: {
+//           accessToken, picture, username, id,
+//         },
+//       } = jwt.verify(token, process.env.SECRET_KEY);
+//       this.setState({
+//         isLoggedIn: !isLoggedIn,
+//         accessToken,
+//         picture,
+//         username,
+//         id
+//       })
+//     }
+//   }
+//
+//   render() {
+//     const { children } = this.props;
+//     return (
+//       <UserContext.Provider value={this.state}>
+//         <div className={styles.Layout}>
+//           <Header/>
+//           <div className={styles.Section}>
+//             {children}
+//           </div>
+//         </div>
+//       </UserContext.Provider>
+//     );
+//   }
+// }
+
+const Layout2 = ({ children }) => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [accessToken, setAccessToken] = useState('');
+  const [avatar, setAvatar] = useState('');
+  const [username, setUsername] = useState('');
+  const [id, setId] = useState('');
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (token){
+      const {
+        data: {
+          accessToken, picture, username, id,
+        },
+      } = jwt.verify(token, process.env.SECRET_KEY);
+      setAccessToken(accessToken);
+      setAvatar(picture);
+      setIsLoggedIn(!isLoggedIn);
+      setId(id);
+      setUsername(username);
+    }
+  }, []);
   return (
-    <div className={styles.Layout}>
-      <Header>
-        <HeaderLoggedInView picture={picture} />
-      </Header>
-      <div className={styles.Section}>
-        {children}
+    <UserContext.Provider value={{ isLoggedIn, username, accessToken, avatar, id}}>
+      <div className={styles.Layout}>
+        <Header/>
+        <div className={styles.Section}>
+          {children}
+        </div>
       </div>
-    </div>
-  );
-};
+    </UserContext.Provider>
+  )
+}
 
-Layout.propTypes = {
-  children: PropTypes.arrayOf(PropTypes.any).isRequired,
-  picture: PropTypes.string.isRequired,
-};
-
-export default Layout;
+export default Layout2;

@@ -1,16 +1,16 @@
 import React from 'react';
-import styles from '../styles/Login.scss';
+import styles from '../styles/SignUp.scss';
 
-const Login = () => (
-  <div className={styles.Login}>
+const SignUp = () => (
+  <div className={styles.SignUp}>
     <div
-      className={styles.LoginForm}
+      className={styles.SignUpForm}
     >
       <a
         href={`https://github.com/login/oauth/authorize?response_type=code&scope=read%3Auser&state=hAbye264gHSHJB&client_id=${process.env.ACCESS_TOKEN}`}
-        className={styles.LoginFormSocial}
+        className={styles.SignUpFormSocial}
       >
-        <span>Sign up with</span>
+        <span>Sign in</span>
         <img src="/static/img/github-icon.svg" alt="github" />
       </a>
     </div>
@@ -18,4 +18,4 @@ const Login = () => (
 );
 
 
-export default Login;
+export default SignUp;
