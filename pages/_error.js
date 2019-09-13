@@ -3,8 +3,8 @@ import Layout from '../components/Layout';
 
 const Error = () => (
   <Layout>
-    <div >
-      <img src="../static/img/github-icon.svg" alt=""/>
+    <div>
+      <img src="../static/img/github-icon.svg" alt="" />
       <div>
         <h2>Bryce Cee</h2>
         <h3>Bryce Cee</h3>

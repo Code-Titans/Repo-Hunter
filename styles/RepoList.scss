@@ -1,10 +1,12 @@
 .RepoList {
   display: grid;
   grid-gap: 2em;
-  margin: 2em 0 0 4em;
+  margin: 1em 0 0 3em;
+  height: 80vh;
+  overflow-y: auto;
+  padding: 1em;
 
   .Card {
-    width: fit-content;
     display: flex;
     align-items: center;
     height: 180px;
@@ -22,7 +24,6 @@
     &Content {
       display: flex;
       height: 100%;
-      width: 65%;
       box-shadow: 1px 0 4px 0 #DCDCDC;
       border-radius: 0 6px 6px 0;
 
@@ -68,7 +69,6 @@
     &Star {
       display: flex;
       height: fit-content;
-      width: 200px;
       border-radius: 30px;
       padding: 5px 10px 0 0;
       position: relative;

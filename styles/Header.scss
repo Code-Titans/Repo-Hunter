@@ -6,9 +6,6 @@
   grid-template-columns: 1fr 2fr 1fr;
   align-items: center;
   justify-items: center;
-  //position: fixed;
-  //top: 0;
-  //z-index: 999;
 
   .SearchBlock{
     position: relative;
@@ -31,26 +28,6 @@
     }
   }
 
-  .NewRepos {
-    border: none;
-    border-radius: 30px;
-    width: max-content;
-    background-color: #EB0E6E;
-    color: #FFFFFF;
-    font-size: 14px;
-    padding: 10px 30px;
-    font-family: "Helvetica Neue", serif;
-    font-weight: 200;
-    outline: none;
-    cursor: pointer;
-
-    &:active {
-      background-color: #FFFFFF;
-      color: #000000;
-      transition: ease-in-out 0.1s;
-    }
-  }
-
   .Profile {
     display: flex;
     height: 48px;
@@ -69,6 +46,7 @@
       border-radius: 50%;
       object-position: center;
       cursor: pointer;
+      transition: all 250ms ease-in 1s;
     }
 
     &Name {
@@ -88,6 +66,7 @@
       width: -webkit-fill-available;
       display: flex;
       justify-content: flex-end;
+      transition: all 250ms ease-in 1s;
 
       ul {
         list-style: none;

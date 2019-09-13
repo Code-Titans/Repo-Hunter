@@ -2,10 +2,9 @@
   align-items: flex-start;
   display: flex;
   line-height: normal;
-  border-bottom: solid 2px #000000;
-  margin: 1em auto;
+  margin-top: 1em;
   padding-bottom: 1em;
-  width: 80%;
+  width: 90%;
 
   &Image {
     height: 96px;
@@ -30,10 +29,6 @@
       }
     }
 
-    p {
-      width: 80%;
-    }
-
     div > ul {
       list-style: none;
 
@@ -55,5 +50,6 @@
 
   &Edit {
     cursor: pointer;
+    margin-right: 1em;
   }
 }

@@ -26,30 +26,35 @@ const ProfileDetails = () => {
           <div>
             <ul>
               <li>
-                <img src="../static/img/star.svg" alt="start"/>
+                <img src="../static/img/star.svg" alt="start" />
                 <span>@andela</span>
               </li>
               <li>
-                <img src="../static/img/star.svg" alt="start"/>
+                <img src="../static/img/star.svg" alt="start" />
                 <span>bryancee.me</span>
               </li>
               <li>
-                <img src="../static/img/star.svg" alt="start"/>
+                <img src="../static/img/star.svg" alt="start" />
                 <span>Nairobi, Kenya</span>
               </li>
               <li>
-                <img src="../static/img/star.svg" alt="start"/>
+                <img src="../static/img/star.svg" alt="start" />
                 <span>cheruiyotbryan@gmail.com</span>
               </li>
             </ul>
           </div>
         </div>
-        <div className={styles.ProfileEdit} onClick={() => console.log('edit profile')}>
-          <img src="../static/img/github-icon.svg" alt="edit-icon"/>
+        <div
+          className={styles.ProfileEdit}
+          role="button"
+          tabIndex={-1}
+          onClick={() => console.log('edit profile')}
+        >
+          <img src="../static/img/search_icon.svg" alt="edit-icon" />
         </div>
       </div>
     </>
-  )
+  );
 };
 
 export default ProfileDetails;

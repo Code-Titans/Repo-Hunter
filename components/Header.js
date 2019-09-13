@@ -8,7 +8,12 @@ const Header = ({ isLoggedIn, name, avatar }) => {
   const [showDropDown, setShowDropDown] = useState(false);
   return (
     <nav className={styles.Header}>
-      <div className={styles.Logo} onClick={() => Router.push('/')}>
+      <div
+        className={styles.Logo}
+        role="link"
+        tabIndex={-1}
+        onClick={() => Router.push('/')}
+      >
         Repo
         <span className={styles.LogoDesign}>Hunter</span>
       </div>
