@@ -142,7 +142,7 @@ linters:
       'ms', 's',                               # Duration
       'Hz', 'kHz',                             # Frequency
       'dpi', 'dpcm', 'dppx',                   # Resolution
-      '%']                                     # Other
+      '%', 'fr']                               # Other
     properties: {}
 
   PseudoElement:
@@ -239,7 +239,7 @@ linters:
   VendorPrefix:
     enabled: true
     identifier_list: base
-    additional_identifiers: []
+    additional_identifiers: ['-webkit-fill-available']
     excluded_identifiers: []
 
   ZeroUnit:

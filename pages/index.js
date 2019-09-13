@@ -7,10 +7,10 @@ import styles from '../styles/Index.scss';
 
 const Index = () => (
   <Layout>
-    <SortAndFilter/>
+    <SortAndFilter />
     <div className={styles.Container}>
-      <Sidebar/>
-      <RepoList/>
+      <Sidebar />
+      <RepoList />
     </div>
   </Layout>
 );

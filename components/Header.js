@@ -1,25 +1,14 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { UserContext } from './Layout';
+import Router from 'next/router';
 import SignUp from './SignUp';
 import styles from '../styles/Header.scss';
 
-
-//TODO
-// display the drop down menu
-
-const Header = () => {
+const Header = ({ isLoggedIn, name, avatar }) => {
   const [showDropDown, setShowDropDown] = useState(false);
-  const { isLoggedIn, username, avatar } = useContext(UserContext);
-  const displayDropdown = () => {
-    setShowDropDown(!showDropDown)
-  };
-  const showProfile = () => {
-    console.log('navigation to the profile page')
-  };
   return (
     <nav className={styles.Header}>
-      <div className={styles.Logo}>
+      <div className={styles.Logo} onClick={() => Router.push('/')}>
         Repo
         <span className={styles.LogoDesign}>Hunter</span>
       </div>
@@ -38,31 +27,44 @@ const Header = () => {
           />
         </div>
       </form>
-      {!isLoggedIn ? <SignUp/> : (
-        <div className={styles.Profile} >
+      {!isLoggedIn ? <SignUp /> : (
+        <div className={styles.Profile}>
           <img
             role="button"
             src={avatar}
             alt="profile-pic"
-            onClick={displayDropdown}
+            onClick={() => setShowDropDown(!showDropDown)}
           />
           {!showDropDown ? null : (
             <>
-              <div className={styles.ProfileName} onClick={showProfile}>{username}</div>
+              <div
+                role="button"
+                tabIndex={-2}
+                className={styles.ProfileName}
+                onClick={() => {
+                  Router.push('/profile');
+                  setShowDropDown(!showDropDown);
+                }}
+              >
+                {name}
+              </div>
               <div className={styles.ProfileDropdown}>
                 <ul>
                   <li>Logout</li>
-              </ul>
+                </ul>
               </div>
             </>
           )}
         </div>
       )}
     </nav>
-  )
+  );
 };
 
 Header.propTypes = {
+  isLoggedIn: PropTypes.bool.isRequired,
+  name: PropTypes.string.isRequired,
+  avatar: PropTypes.string.isRequired,
 };
 
 export default Header;

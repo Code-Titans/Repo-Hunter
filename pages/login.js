@@ -4,7 +4,7 @@ import SignUp from '../components/SignUp';
 
 const Login = () => (
   <Layout>
-    <SignUp/>
+    <SignUp />
   </Layout>
 );
 

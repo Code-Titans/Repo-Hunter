@@ -74,6 +74,8 @@
     &Name {
       padding: 0 10px 0 6px;
       cursor: pointer;
+      font-weight: bold;
+      outline: none;
 
       &:hover {
         color: #3B86FF;
@@ -92,6 +94,7 @@
         background-color: #CCCCCC;
         border-radius: 4px;
         z-index: 999;
+        font-weight: bold;
 
         li {
           cursor: pointer;
@@ -101,6 +104,7 @@
           &:hover {
             background-color: #9f9f9f;
             color: #FFFFFF;
+            border-radius: 4px;
           }
           &:last-child {
             border-bottom: none;
@@ -120,6 +124,7 @@
   align-items: center;
   font-weight: bolder;
   color: #FFFFFF;
+  cursor: pointer;
 }
 
 .LogoDesign {

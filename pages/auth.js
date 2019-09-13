@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import Router from 'next/router';
 import PropTypes from 'prop-types';
 import { useMutation } from '@apollo/react-hooks';
-import jwt from 'jsonwebtoken';
 import { GITHUB_AUTH } from '../gql';
 import Loading from '../components/Loading';
 
