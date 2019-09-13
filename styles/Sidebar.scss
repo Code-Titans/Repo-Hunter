@@ -4,20 +4,17 @@
   background-color: $white;
   border: none;
   box-shadow: 0 2px 5px 0 $grey;
-  padding: 16px;
   font-family: Seravek-Light, serif;
-  width: 16vw;
-  min-width: 178px;
   height: fit-content;
-  //position: sticky;
-  //top: 133px;
-  //z-index: 999;
+  min-width: 178px;
+  padding: 16px;
+  width: 16vw;
 
   h2 {
-    font-weight: bold;
     font-size: 20px;
-    margin-left: 14px;
+    font-weight: bold;
     margin-bottom: 10px;
+    margin-left: 14px;
   }
 
   .NullRepoList {
@@ -35,9 +32,9 @@
     margin-bottom: 8px;
 
     li {
-      display: flex;
       align-items: center;
       cursor: pointer;
+      display: flex;
 
       &:hover {
         background-color: $grey;
@@ -51,18 +48,18 @@
 
       span {
         padding-left: 5px;
-        width: 105px;
-        white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
+        width: 105px;
+        white-space: nowrap;
       }
     }
   }
 
   .ShowMore {
     color: $primary-blue;
-    margin-left: 10px;
-    font-size: 14px;
     cursor: pointer;
+    font-size: 14px;
+    margin-left: 10px;
   }
 }

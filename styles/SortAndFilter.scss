@@ -1,19 +1,16 @@
+@import "foundation/variables";
+
 .FilterSortSection {
-  display: flex;
-  justify-content: flex-end;
   align-items: center;
+  background-color: $white;
+  display: flex;
   font-family: Seravek-Light, serif;
-  background-color: #FFFFFF;
-  //position: fixed;
+  justify-content: flex-end;
   width: 100%;
-  //top: 64px;
-  //left: 0;
-  //height: 10vh;
-  //z-index: 99;
 
   p {
-    padding: 15px 15px 0;
     font-weight: bold;
+    padding: 15px 15px 0;
   }
 
   .FilterInput {

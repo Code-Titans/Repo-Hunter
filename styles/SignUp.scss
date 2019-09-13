@@ -1,21 +1,22 @@
+@import "foundation/variables";
+
 .SignUp {
-  width: max-content;
   display: flex;
   flex-direction: column;
   justify-self: center;
+  width: max-content;
 
   &Form {
     &Social {
       align-items: center;
-      background-color: #FFFFFF;
+      background-color: $white;
       border: 0;
       border-radius: 4px;
-      box-shadow: 0 0 4px 0 #00000078;
       cursor: pointer;
       display: flex;
       justify-content: center;
-      text-decoration: none;
       padding: 0 16px;
+      text-decoration: none;
 
       span {
         font-family: "Source Sans Pro", sans-serif;
@@ -23,35 +24,9 @@
       }
 
       img {
-        padding: 2px 2px 2px 4px;
         height: 40px;
+        padding: 2px 2px 2px 4px;
       }
     }
   }
-
-  p:first-of-type{
-    //color: #78F4EF; TODO fix the social authentication the uncomment this
-    font-family: "Source Sans Pro", sans-serif;
-    font-size: 14px;
-    align-self: center;
-    margin: 0.8em 0;
-  }
-
-  p {
-    align-self: center;
-    font-family: "Source Sans Pro", sans-serif;
-    font-size: 14px;
-
-    span {
-      color: #78F4EF;
-      text-decoration: none;
-      cursor: pointer;
-    }
-  }
-}
-
-.Error {
-  color: #ffa9bf;
-  font-size: 12px;
-  font-weight: bolder;
 }
