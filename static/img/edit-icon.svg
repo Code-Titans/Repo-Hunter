@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="59.414" height="59.414" viewBox="0 0 59.414 59.414">
+  <g id="Edit_icon" data-name="Edit icon" transform="translate(0)">
+    <g id="ic_mode_edit_48px" transform="translate(5.707 5.702)">
+      <path id="Path_2155" data-name="Path 2155" d="M6,34.5V42h7.5L35.63,19.87l-7.5-7.5ZM41.41,14.09a2,2,0,0,0,0-2.83L36.74,6.59a2,2,0,0,0-2.83,0l-3.66,3.66,7.5,7.5,3.66-3.66Z" fill="rgba(85,85,85,0.6)"/>
+    </g>
+    <g id="ic_check_box_outline_blank_48px" transform="translate(-6 -6)">
+      <path id="Path_2156" data-name="Path 2156" d="M58.812,12.6V58.812H12.6V12.6H58.812m0-6.6H12.6A6.6,6.6,0,0,0,6,12.6V58.812a6.6,6.6,0,0,0,6.6,6.6H58.812a6.6,6.6,0,0,0,6.6-6.6V12.6A6.6,6.6,0,0,0,58.812,6Z" transform="translate(0 0)" fill="rgba(85,85,85,0.6)"/>
+    </g>
+  </g>
+</svg>

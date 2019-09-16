@@ -1,46 +1,51 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import styles from '../styles/Profile.scss';
-import { UserContext } from './Layout';
+import { useQuery } from '@apollo/react-hooks';
+import { USER_DETAIL } from '../gql';
 
+const ProfileDetailsText = ({ text }) => {
+  return !text ? null : (
+    <li>
+      <img src="../static/img/star.svg" alt="start" />
+      <span>{text}</span>
+    </li>
+  )
+};
 const ProfileDetails = () => {
-  const { avatar, name } = useContext(UserContext);
-  return (
+  const { data: { userDetails: user }, error, loading } = useQuery(USER_DETAIL);
+
+  if (error) {
+    console.log(err)
+  }
+
+  if (loading) {
+    return (
+      <div className={styles.ProfileLoading}>
+        Loading...
+      </div>
+    )
+  }
+
+  return !user ? null : (
     <>
       <div className={styles.Profile}>
         <img
-          src={avatar}
+          src={user.picture}
           alt="profile-pic"
           className={styles.ProfileImage}
         />
         <div className={styles.ProfileDetails}>
           <div className={styles.ProfileDetailsUsername}>
-            <h3>Bryce Cee</h3>
-            <h4>{`@${name}`}</h4>
+            <h3>{user.name}</h3>
+            <h4>{`@${user.username}`}</h4>
           </div>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            Aliquid assumenda at consequatur cum deleniti dignissimos,
-            dolorem error hic id non provident quae quas quis repudiandae
-            sit ut voluptate voluptatibus. Aspernatur!
-          </p>
+          <p>{user.bio}</p>
           <div>
             <ul>
-              <li>
-                <img src="../static/img/star.svg" alt="start" />
-                <span>@andela</span>
-              </li>
-              <li>
-                <img src="../static/img/star.svg" alt="start" />
-                <span>bryancee.me</span>
-              </li>
-              <li>
-                <img src="../static/img/star.svg" alt="start" />
-                <span>Nairobi, Kenya</span>
-              </li>
-              <li>
-                <img src="../static/img/star.svg" alt="start" />
-                <span>cheruiyotbryan@gmail.com</span>
-              </li>
+              <ProfileDetailsText text={user.company} />
+              <ProfileDetailsText text={user.website} />
+              <ProfileDetailsText text={user.location} />
+              <ProfileDetailsText text={user.email} />
             </ul>
           </div>
         </div>
@@ -50,7 +55,7 @@ const ProfileDetails = () => {
           tabIndex={-1}
           onClick={() => console.log('edit profile')}
         >
-          <img src="../static/img/search_icon.svg" alt="edit-icon" />
+          <img src="../static/img/edit-icon.svg" alt="edit-icon" />
         </div>
       </div>
     </>

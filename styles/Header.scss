@@ -69,6 +69,7 @@
       top: 3.2em;
       transition: all 250ms ease-in 1s;
       width: -webkit-fill-available;
+      width: -moz-available;
 
       ul {
         background-color: $grey;
@@ -106,6 +107,7 @@
   font-weight: bolder;
   height: 60px;
   width: max-content;
+  outline: none;
 }
 
 .LogoDesign {

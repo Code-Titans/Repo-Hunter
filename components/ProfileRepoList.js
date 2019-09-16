@@ -7,8 +7,8 @@ const ProfileRepoList = () => (
     <div className={styles.ProfileRepoList}>
       <h3>My repos</h3>
       <div className={styles.ProfileRepoListSection}>
-        { [1, 2, 3, 4, 5, 6, 7, 8, 9].map(() => (
-          <div className={styles.ProfileRepoListSectionCard}>
+        { [1, 2, 3, 4, 5, 6, 7, 8, 9].map((i) => (
+          <div key={i} className={styles.ProfileRepoListSectionCard}>
             <h4>Repo-Hunter</h4>
             <p>
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit.

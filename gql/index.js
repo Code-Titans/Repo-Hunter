@@ -46,6 +46,23 @@ export const REPO_LIST = gql`
     }
 `;
 
+export const USER_DETAIL = gql`
+    {
+        userDetails {
+            id
+            name
+            username
+            email
+            bio
+            company
+            website
+            location
+            picture
+            isHireable
+        }
+    }
+`;
+
 
 export const POST_REPO = gql`
     mutation PostRepo($link: String!, $description: String!){
