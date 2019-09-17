@@ -1,21 +1,26 @@
 import React from 'react';
-import styles from '../styles/Profile.scss';
 import { useQuery } from '@apollo/react-hooks';
+import PropTypes from 'prop-types';
+import styles from '../styles/Profile.scss';
 import { USER_DETAIL } from '../gql';
 
-const ProfileDetailsText = ({ text }) => {
-  return !text ? null : (
+const ProfileDetailsText = ({ text }) => (
+  !text ? null : (
     <li>
       <img src="../static/img/star.svg" alt="start" />
       <span>{text}</span>
     </li>
-  )
+  ));
+
+ProfileDetailsText.propTypes = {
+  text: PropTypes.string.isRequired,
 };
+
 const ProfileDetails = () => {
   const { data: { userDetails: user }, error, loading } = useQuery(USER_DETAIL);
 
   if (error) {
-    console.log(err)
+    console.log(error);
   }
 
   if (loading) {
@@ -23,7 +28,7 @@ const ProfileDetails = () => {
       <div className={styles.ProfileLoading}>
         Loading...
       </div>
-    )
+    );
   }
 
   return !user ? null : (

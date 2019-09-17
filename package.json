@@ -14,6 +14,11 @@
     "test": "jest  --updateSnapshot",
     "test:coverage": "jest --collectCoverage"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn lint"
+    }
+  },
   "dependencies": {
     "@apollo/react-hooks": "^3.0.1",
     "@zeit/next-sass": "^1.0.1",
@@ -42,6 +47,7 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.14.3",
     "eslint-plugin-react-hooks": "^1.7.0",
+    "husky": "^4.0.0-beta.1",
     "jest": "^24.9.0"
   }
 }

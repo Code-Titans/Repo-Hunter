@@ -4,3 +4,4 @@ fixtures/
 Pagination.js
 jest.config.js
 assetsTransformer.js
+with-apollo.js
