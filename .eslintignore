@@ -2,5 +2,6 @@ fixtures/
 .next/
 
 Pagination.js
-UploadPost.js
 jest.config.js
+assetsTransformer.js
+with-apollo.js

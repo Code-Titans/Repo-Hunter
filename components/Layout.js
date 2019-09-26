@@ -1,28 +1,55 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import jwt from 'jsonwebtoken';
 import PropTypes from 'prop-types';
-import Header, { HeaderLoggedInView } from './Header';
+import styles from '../styles/Layout.scss';
+import Header from './Header';
 
-const styles = require('../styles/Layout.scss');
+export const UserContext = React.createContext();
 
-const Layout = props => {
-  const { children, picture } = props;
-  // TODO: check for login details then show the rest
-  //  of the the header section
+const Layout = ({ children }) => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [token, setToken] = useState('');
+  const [avatar, setAvatar] = useState('');
+  const [name, setName] = useState('');
+  const [userId, setUserId] = useState('');
+
+  useEffect(() => {
+    const jwtToken = localStorage.getItem('token');
+    if (jwtToken) {
+      try {
+        const {
+          data: {
+            accessToken, picture, username, id,
+          },
+        } = jwt.verify(jwtToken, process.env.SECRET_KEY);
+        setToken(accessToken);
+        setAvatar(picture);
+        setIsLoggedIn(!isLoggedIn);
+        setUserId(id);
+        setName(username);
+      } catch (e) {
+        console.log(e.name, ':', e.message);
+      }
+    }
+  }, []);
   return (
-    <div className={styles.Layout}>
-      <Header>
-        <HeaderLoggedInView picture={picture} />
-      </Header>
-      <div className={styles.Section}>
-        {children}
+    <UserContext.Provider
+      value={{
+        isLoggedIn, name, token, avatar, userId,
+      }}
+    >
+      <div className={styles.Layout}>
+        <Header isLoggedIn={isLoggedIn} name={name} avatar={avatar} />
+        <div className={styles.Section}>
+          {children}
+        </div>
       </div>
-    </div>
+    </UserContext.Provider>
   );
 };
 
 Layout.propTypes = {
-  children: PropTypes.arrayOf(PropTypes.any).isRequired,
-  picture: PropTypes.string.isRequired,
+  children: PropTypes.shape({}).isRequired,
 };
 
 export default Layout;

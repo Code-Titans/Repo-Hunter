@@ -1,10 +1,17 @@
 import React from 'react';
 import Layout from '../components/Layout';
-import Login from '../components/Login';
+import SortAndFilter from '../components/SortAndFilter';
+import Sidebar from '../components/Sidebar';
+import RepoList from '../components/RepoList';
+import styles from '../styles/Index.scss';
 
 const Index = () => (
   <Layout>
-    <Login />
+    <SortAndFilter />
+    <div className={styles.Container}>
+      <Sidebar />
+      <RepoList />
+    </div>
   </Layout>
 );
 

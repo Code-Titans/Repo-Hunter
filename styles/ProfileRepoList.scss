@@ -1,0 +1,39 @@
+@import "foundation/variables";
+
+.ProfileRepoList {
+  display: grid;
+  grid-gap: 1em;
+  justify-items: center;
+  line-height: normal;
+
+  h3 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    margin-left: -2em;
+    width: 80%;
+  }
+
+  &Section {
+    border-bottom: solid 2px $lighter-grey;
+    border-top: solid 2px $lighter-grey;
+    height: 400px;
+    overflow-y: auto;
+
+    &Card {
+      border: none;
+      border-radius: 10px;
+      box-shadow: 1px 0 4px 0 $lighter-grey;
+      cursor: pointer;
+      display: grid;
+      grid-gap: 1em;
+      margin: 1em auto;
+      padding: 2em;
+      width: 80%;
+
+      h4 {
+        font-weight: bold;
+      }
+    }
+  }
+}

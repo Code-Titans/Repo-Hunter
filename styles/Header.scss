@@ -1,14 +1,13 @@
+@import "foundation/variables";
+
 .Header {
-  width: 100%;
-  background-color: #3841A8;
-  height: 4em;
-  display: grid;
-  grid-template-columns: 1fr 2fr 1fr 1fr;
   align-items: center;
+  background-color: $primary-blue;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  height: 4em;
   justify-items: center;
-  position: fixed;
-  top: 0;
-  z-index: 999;
+  width: 100%;
 
   .SearchBlock{
     position: relative;
@@ -16,88 +15,78 @@
     .SearchInput {
       border: none;
       border-radius: 30px;
-      line-height: 14px;
       font-size: 14px;
+      font-family: Seravek-Light, serif;
+      line-height: 14px;
+      outline: none;
       padding: 10px 44px 10px 16px;
       width: 30vw;
-      font-family: Seravek-Light, serif;
-      outline: none;
     }
 
     .SearchInputIcon {
+      margin: 6px 10px 0 0;
       position: absolute;
       right: 0;
-      margin: 6px 10px 0 0;
-    }
-  }
-
-  .NewRepos {
-    border: none;
-    border-radius: 30px;
-    width: max-content;
-    background-color: #EB0E6E;
-    color: #FFFFFF;
-    font-size: 14px;
-    padding: 10px 30px;
-    font-family: "Helvetica Neue", serif;
-    font-weight: 200;
-    outline: none;
-    cursor: pointer;
-
-    &:active {
-      background-color: #FFFFFF;
-      color: #000000;
-      transition: ease-in-out 0.1s;
     }
   }
 
   .Profile {
-    display: flex;
-    height: 48px;
-    background-color: aliceblue;
+    align-items: center;
+    background-color: $aliceblue;
     border-radius: 30px;
+    display: flex;
     font-family: "Helvetica Neue", serif;
     font-weight: 200;
+    height: 48px;
+    position: relative;
     transition: ease-in 1s;
+    width: max-content;
 
     img {
-      width: 48px;
       object-fit: contain;
-      border-radius: 50%;
       object-position: center;
+      border-radius: 50%;
       cursor: pointer;
+      transition: all 250ms ease-in 1s;
+      width: 48px;
     }
 
-    .DisplayNone{
-      display: none !important;
+    &Name {
+      cursor: pointer;
+      font-weight: bold;
+      outline: none;
+      padding: 0 10px 0 6px;
+
+      &:hover {
+        color: $light-blue;
+      }
     }
 
     .ProfileDropdown{
-      position: relative;
-      top: 35%;
-
-      span{
-        color: #000000;
-        height: 48px;
-        padding: 0 12px 0 8px;
-      }
+      display: flex;
+      justify-content: flex-end;
+      position: absolute;
+      top: 3.2em;
+      transition: all 250ms ease-in 1s;
+      width: -webkit-fill-available;
+      width: -moz-available;
 
       ul {
-        list-style: none;
-        background-color: #CCCCCC;
-        margin-top: 19%;
+        background-color: $grey;
         border-radius: 4px;
-        position: absolute;
+        font-weight: bold;
+        list-style: none;
         z-index: 999;
 
         li {
+          border-bottom: solid 1px $black;
           cursor: pointer;
           padding: 14px 18px;
-          border-bottom: solid 1px black;
 
           &:hover {
-            background-color: #9f9f9f;
-            color: #FFFFFF;
+            background-color: $darker-grey;
+            border-radius: 4px;
+            color: $white;
           }
           &:last-child {
             border-bottom: none;
@@ -110,19 +99,21 @@
 }
 
 .Logo {
+  align-items: center;
+  color: $white;
+  cursor: pointer;
+  display: flex;
+  font-family: "American Typewriter", serif;
+  font-weight: bolder;
   height: 60px;
   width: max-content;
-  font-family: "American Typewriter", serif;
-  display: flex;
-  align-items: center;
-  font-weight: bolder;
-  color: #FFFFFF;
+  outline: none;
 }
 
 .LogoDesign {
-  color: #EB0E6E;
-  background-color: #FFFFFF;
-  padding: 8px 4px 8px 0;
+  background-color: $white;
   border-bottom-right-radius: 4px;
   border-top-right-radius: 4px;
+  color: $primary-pink;
+  padding: 8px 4px 8px 0;
 }

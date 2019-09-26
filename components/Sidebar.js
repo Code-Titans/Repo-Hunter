@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { SidebarRepos } from '../fixtures';
-
+import { UserContext } from './Layout';
 import styles from '../styles/Sidebar.scss';
-// TODO: Research on how to test functional components with hooks
+
 const Sidebar = () => {
+  const { isLoggedIn } = useContext(UserContext);
   const [repos, setRepos] = useState(SidebarRepos);
   const showMoreRepos = () => {
     setRepos(SidebarRepos);
   };
-  // TODO: Repo pagination for the backend
-  return (
+  return !isLoggedIn ? null : (
     <div className={styles.Card}>
       <h2>My repos</h2>
       {repos.length === 0 ? (
